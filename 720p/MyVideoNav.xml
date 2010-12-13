@@ -1,0 +1,403 @@
+<window id="25">
+
+<defaultcontrol always="true">55</defaultcontrol>
+<allowoverlay>no</allowoverlay>
+
+<views>55,508,511,569,513,514,519,555,556</views>
+
+<!-- Hide menu if kiosk mode turned ON -->
+<visible>!Skin.HasSetting(kiosk)</visible>
+
+<controls>
+
+    <include>CommonVideoBackground</include>
+ 
+	<!-- FANART IMAGES -->
+	<control type="group">
+		<include>Window_OpenClose_Animation</include>    
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(VideoLibraryMovieFanart) | Control.IsVisible(508)</visible>
+			<visible>Container.Content(Movies)</visible>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(VideoLibraryTVFanart)</visible>
+			<visible>Container.Content(TVShows) | [Container.Content(Episodes) + substring(Container.FolderPath,videodb://5/)]</visible>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<info>Fanart.Image</info>
+			<texture background="true">$INFO[Fanart.Image]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(VideoLibraryTVFanart)</visible>
+			<visible>Container.Content(Seasons) | [Container.Content(Episodes) + !substring(Container.FolderPath,videodb://5/)]</visible>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(VideoLibraryMusicVideoFanart)</visible>
+			<visible>Container.Content(MusicVideos) | Container.Content(Artists) | Container.Content(Albums)</visible>
+		</control>
+    </control>
+	
+    <include>CommonMediaPlayingBackground</include>
+	<include>Window_OpenClose_Animation</include>
+    <include>CommonPageCount</include>
+    <include>BehindDialogFadeOut</include>
+    <include>ScrollOffsetLabel</include>
+	
+	<include>CommonRootView</include> <!-- view id = 55 -->
+	<include>Fanart</include> <!-- view id = 508 -->
+	<include>MusicVideoInfoListView</include> <!-- view id = 511 -->
+	<include>RightListView</include> <!-- view id = 569 -->
+	<include>WallView</include> <!-- view id = 513 -->
+	<include>HalfWallView</include> <!-- view id = 514 -->
+	<include>BannerWallView</include><!-- view id = 519 -->
+	<include>MovieCoverflow</include> <!-- view id 555 -->
+	<include>BigPosterView</include> <!-- view id 556 -->
+
+	<!-- ==================== VIEW OPTIONS FLYOUT MENU ========================== -->
+    <control type="group">
+	
+		<animation effect="slide" start="0,0" end="280,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus | Control.HasFocus(8999)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="-380,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus">WindowClose</animation>
+
+		<control type="button" id="8999">
+			<description>Fake button for mouse control</description>
+			<posx>-260</posx>
+			<posy>0</posy>
+			<width>265</width>
+			<height>720</height>
+			<label>-</label>
+			<font>-</font>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>-</texturefocus>
+			<visible>true</visible>
+		</control>
+
+		<!-- Menu background panel -->
+		<control type="image">
+			<posx>-270</posx>
+			<posy>115</posy>
+			<width>270</width>
+			<height>595</height>
+			<texture>viewoptionspanel.png</texture>
+		</control>
+		
+		<!-- eye image and view options label at top of menu -->
+		<control type="group">   
+			<posx>-240</posx>
+			<posy>130</posy>
+			<control type="image">
+				<description>View option eye pic</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>45</width>
+				<height>30</height>
+				<aspectratio>keep</aspectratio>
+				<texture>viewoptions.png</texture>
+			</control>
+			<control type="label">
+				<description>View options</description>
+				<posx>200</posx>
+				<posy>0</posy>
+				<width>250</width>
+				<height>30</height>
+				<font>cirrus_24_Bold</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<scroll>false</scroll>
+				<align>right</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[14018]</label>
+			</control>
+		</control>
+
+		<!-- MENU ITEMS BELOW -->
+		<control type="group" id="9000">
+			<posx>-260</posx>
+			<posy>180</posy>
+			<!-- <include>CommonNowPlaying</include> --> <!-- GET RID OF FROM INCLUDES? -->
+			<control type="button" id="2">
+				<description>View As button</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<include>ButtonCommonValues</include>
+				<label>-</label>
+				<onleft>55</onleft>
+				<onright>55</onright>
+				<onup>8</onup>
+				<ondown>3</ondown>
+			</control>
+			<control type="button" id="3">
+				<description>Sort by button</description>
+				<posx>0</posx>
+				<posy>40</posy>
+				<include>ButtonCommonValues</include>
+				<label>103</label>
+				<onleft>55</onleft>
+				<onright>4</onright>
+				<onup>2</onup>
+				<ondown>99</ondown>
+			</control>
+			<control type="togglebutton" id="4">
+				<description>Sort asc</description>
+				<posx>220</posx>
+				<posy>53</posy>
+				<label>-</label>
+				<onleft>3</onleft>
+				<onright>55</onright>
+				<onup>2</onup>
+				<ondown>99</ondown>
+			</control>
+			<control type="radiobutton" id="99">
+				<description>Library button</description>
+				<posx>0</posx>
+				<posy>80</posy>
+				<label>$LOCALIZE[29800]</label>
+				<onclick>ReplaceWindow(VideoFiles)</onclick>
+				<selected>Window.IsVisible(VideoLibrary)</selected>
+				<include>ButtonCommonValues</include>
+				<onleft>55</onleft>
+				<onright>55</onright>
+				<onup>3</onup>
+				<ondown>16</ondown>
+			</control>
+			<control type="radiobutton" id="16">
+				<description>PartyMode</description>
+				<posx>0</posx>
+				<posy>120</posy>
+				<label>589</label>
+				<include>ButtonCommonValues</include>
+				<onleft>55</onleft>
+				<onright>55</onright>
+				<onup>99</onup>
+				<ondown>14</ondown>
+			</control>
+			<!-- GROUP OF RADIO BUTTONS  -->
+			<control type="grouplist" id="9010">
+				<posx>0</posx>
+				<posy>160</posy>
+				<width>250</width>
+				<height>550</height>
+				<onleft>55</onleft>
+				<onright>55</onright>
+				<onup>16</onup>
+				<ondown>2</ondown>
+				<itemgap>0</itemgap>
+				<control type="radiobutton" id="14">
+					<description>HIDE Watched Toggle</description>
+					<include>ButtonCommonValues</include>
+					<label>20367</label>
+				</control>
+				<control type="radiobutton" id="19">
+					<description>Filter</description>
+					<include>ButtonCommonValues</include>
+					<label>587</label>
+				</control>
+				<control type="radiobutton" id="17">
+					<description>Flatten</description>
+					<include>ButtonCommonValues</include>
+					<label>20411</label>
+				</control>
+				<control type="radiobutton" id="11">
+					<description>Unlock Shares</description>
+					<include>ButtonCommonValues</include>
+					<label>20336</label>
+					<onclick>xbmc.mastermode</onclick>
+					<selected>system.ismaster</selected>
+					<visible>system.haslocks</visible>
+				</control>
+				<control type="radiobutton" id="201">
+					<description>Toggle MoviesFanart</description>
+					<include>ButtonCommonValues</include>
+					<label>31307</label>
+					<onclick>Skin.ToggleSetting(VideoLibraryMovieFanart)</onclick>
+					<selected>Skin.HasSetting(VideoLibraryMovieFanart)</selected>
+					<visible>Container.Content(Movies) + !Control.IsVisible(508)</visible>
+				</control>
+				<control type="radiobutton" id="202">
+					<description>Toggle TVShow Fanart</description>
+					<include>ButtonCommonValues</include>
+					<label>31307</label>
+					<onclick>Skin.ToggleSetting(VideoLibraryTVFanart)</onclick>
+					<selected>Skin.HasSetting(VideoLibraryTVFanart)</selected>
+					<visible>Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)</visible>
+				</control>
+				<control type="radiobutton" id="203">
+					<description>Toggle MusicVideo Fanart</description>
+					<include>ButtonCommonValues</include>
+					<label>31307</label>
+					<onclick>Skin.ToggleSetting(VideoLibraryMusicVideoFanart)</onclick>
+					<selected>Skin.HasSetting(VideoLibraryMusicVideoFanart)</selected>
+					<visible>Container.Content(MusicVideos) | Container.Content(Artists) | Container.Content(Albums)</visible>
+				</control>
+				<control type="radiobutton" id="204">
+					<description>Toggle Fanart</description>
+					<include>ButtonCommonValues</include>
+					<label>31318</label>
+					<onclick>Skin.ToggleSetting(VideoLibraryFanartView504)</onclick>
+					<selected>!Skin.HasSetting(VideoLibraryFanartView504)</selected>
+					<visible>[Control.IsVisible(504) + [Container.Content(Movies) | Container.Content(TVShows)]]</visible>
+				</control>
+				<control type="radiobutton" id="205">
+					<description>Toggle Fanart View Media Info</description>
+					<include>ButtonCommonValues</include>
+					<label>31005</label>
+					<onclick>Skin.ToggleSetting(View508HideInfo)</onclick>
+					<selected>Skin.HasSetting(View508HideInfo)</selected>
+					<visible>Control.IsVisible(508)</visible>
+				</control>
+				<control type="radiobutton" id="2051">
+					<description>Toggle Rightlist Slim View</description>
+					<include>ButtonCommonValues</include>
+					<label>Slim Right List</label>
+					<onclick>Skin.ToggleSetting(slimRightList)</onclick>
+					<selected>Skin.HasSetting(slimRightList)</selected>
+					<visible>Control.IsVisible(569)</visible>
+				</control>
+				<control type="radiobutton" id="2057">
+					<description>Toggle Rightlist posters</description>
+					<include>ButtonCommonValues</include>
+					<label>Remove posters</label>
+					<onclick>Skin.ToggleSetting(posterlessRightList)</onclick>
+					<selected>Skin.HasSetting(posterlessRightList)</selected>
+					<visible>Control.IsVisible(569)</visible>
+				</control>
+				<control type="radiobutton" id="2052">
+					<description>Toggle Cases</description>
+					<include>ButtonCommonValues</include>
+					<label>Show Cases</label>
+					<onclick>Skin.ToggleSetting(showCases)</onclick>
+					<selected>Skin.HasSetting(showCases)</selected>
+					<visible>Control.IsVisible(569)</visible>
+				</control>
+				<control type="radiobutton" id="2053">
+					<description>Clear Cases</description>
+					<include>ButtonCommonValues</include>
+					<label>Clear Cases</label>
+					<onclick>Skin.ToggleSetting(showClearCases)</onclick>
+					<selected>Skin.HasSetting(showClearCases)</selected>
+					<visible>Control.IsVisible(569) + Skin.HasSetting(showCases)</visible>
+				</control>
+				<control type="radiobutton" id="2054">
+					<description>Toggle Bigposter Cases</description>
+					<include>ButtonCommonValues</include>
+					<label>Show Cases</label>
+					<onclick>Skin.ToggleSetting(showBigposterCases)</onclick>
+					<selected>Skin.HasSetting(showBigposterCases)</selected>
+					<visible>Control.IsVisible(556)</visible>
+				</control>
+				<control type="radiobutton" id="2055">
+					<description>Clear Bigposter Cases</description>
+					<include>ButtonCommonValues</include>
+					<label>Clear Cases</label>
+					<onclick>Skin.ToggleSetting(showBigposterClearCases)</onclick>
+					<selected>Skin.HasSetting(showBigposterClearCases)</selected>
+					<visible>Control.IsVisible(556) + Skin.HasSetting(showBigposterCases)</visible>
+				</control>
+				<control type="radiobutton" id="2056">
+					<description>Fanart view TV Shows use logos</description>
+					<include>ButtonCommonValues</include>
+					<label>Use Logos</label>
+					<onclick>Skin.ToggleSetting(fanartTVLogos)</onclick>
+					<selected>Skin.HasSetting(fanartTVLogos)</selected>
+					<visible>Control.IsVisible(508) + Container.Content(TVShows)</visible>
+				</control>
+				<control type="button" id="8">
+					<description>Search</description>
+					<include>ButtonCommonValues</include>
+					<label>137</label>
+				</control>
+			</control>
+		</control>
+    </control>
+
+	<!-- LABELS FOR MUSIC VIDEO BREADCRUMB TRAIL -->
+	<control type="group">
+		<posx>20</posx>
+		<posy>50</posy>
+		<visible>Container.Content(MusicVideos)</visible>
+		<include>VisibleFadeEffect</include>
+		<animation effect="slide" end="-510,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+		<animation effect="slide" start="-510,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+		<control type="label">
+			<include>WindowTitleCommons</include>
+			<posx>0</posx>
+			<label>$LOCALIZE[20389]</label>
+		</control>
+	</control>
+	
+	<!-- LABELS FOR TV BREADCRUMB TRAIL -->
+	<control type="group">
+		<posx>20</posx>
+		<posy>50</posy>
+		<visible>Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)</visible>
+		<include>VisibleFadeEffect</include>
+		<animation effect="slide" end="-510,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+		<animation effect="slide" start="-510,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+		<control type="label">
+			<include>WindowTitleCommons</include>
+			<posx>0</posx>
+			<label>$LOCALIZE[20343]</label>
+		</control>
+	</control>
+	
+	<!-- LABELS FOR TV BREADCRUMB TRAIL - Seasons & Episodes bit -->
+	<control type="group">
+		<posx>20</posx>
+		<posy>100</posy>
+		<visible>Container.Content(Seasons) | Container.Content(Episodes)</visible>
+		<include>VisibleFadeEffect</include>
+		<animation effect="slide" end="-600,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+		<animation effect="slide" start="-600,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+		<control type="label">
+			<width>850</width>
+			<include>WindowTVShowTitleCommons</include>
+			<posx>0</posx>
+			<label>$INFO[ListItem.TVShowTitle]</label>
+		</control>
+	</control>
+
+	<!-- LABELS FOR MOVIES BREADCRUMB TRAIL -->
+	<control type="group">
+		<posx>20</posx>
+		<posy>50</posy>
+		<visible>Container.Content(Movies)</visible>
+		<include>VisibleFadeEffect</include>
+		<animation effect="slide" end="-510,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+		<animation effect="slide" start="-510,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+		<control type="label">
+			<include>WindowTitleCommons</include>
+			<posx>0</posx>
+			<label>$LOCALIZE[20342]</label>
+		</control>
+	</control>
+
+	<!-- Clock -->
+    <include>Clock</include>
+
+</controls>
+</window>

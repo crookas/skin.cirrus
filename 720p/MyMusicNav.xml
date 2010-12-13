@@ -1,0 +1,288 @@
+<window id="502">
+
+<defaultcontrol always="true">55</defaultcontrol>
+<allowoverlay>no</allowoverlay>
+
+<views>55,511,566,525,555,547</views>
+
+<!-- Hide menu if kiosk mode turned ON -->
+<visible>!Skin.HasSetting(kiosk)</visible>
+
+<controls>
+
+	<include>CommonMusicBackground</include>
+
+	<!-- FANART IMAGES -->
+	<control type="group">
+		<include>Window_OpenClose_Animation</include>		
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(MusicLibraryFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[Fanart.Image]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(MusicLibraryFanart) + !IsEmpty(Fanart.Image)</visible>
+		</control>
+	</control>
+	
+	<include>CommonMediaPlayingBackground</include>
+
+	<include>Window_OpenClose_Animation</include>
+	<include>CommonPageCount</include>
+	<include>BehindDialogFadeOut</include>
+	<include>ScrollOffsetLabel</include>
+
+	<include>CommonRootView</include> <!-- view id = 55 -->
+	<include>MusicVideoInfoListView</include> <!-- view id = 511 -->
+	<include>RightMusicView</include> <!-- view id = 566 -->
+	<include>MusicWallView</include> <!-- view id = 525 -->
+	<include>MusicCoverflow</include> <!-- view id 555 -->
+	<include>MusicFanart</include> <!-- view id 547 -->
+
+	<!-- ==================== VIEW OPTIONS FLYOUT MENU ========================== -->
+
+	<control type="group">
+	
+		<animation effect="slide" start="0,0" end="280,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus | Control.HasFocus(8999)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="-380,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus">WindowClose</animation>
+
+		<control type="button" id="8999">
+			<description>Fake button for mouse control</description>
+			<posx>-250</posx>
+			<posy>0</posy>
+			<width>265</width>
+			<height>720</height>
+			<label>-</label>
+			<font>-</font>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>-</texturefocus>
+			<visible>true</visible>
+		</control>
+		
+		
+		<!-- Menu background panel -->
+		<control type="image">
+			<posx>-270</posx>
+			<posy>115</posy>
+			<width>270</width>
+			<height>595</height>
+			<texture>viewoptionspanel.png</texture>
+		</control>
+		
+		<!-- eye image and view options label at top of menu -->
+		<control type="group">   
+			<posx>-240</posx>
+			<posy>130</posy>
+			<control type="image">
+				<description>View option eye pic</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>45</width>
+				<height>30</height>
+				<aspectratio>keep</aspectratio>
+				<texture>viewoptions.png</texture>
+			</control>
+			<control type="label">
+				<description>View options</description>
+				<posx>200</posx>
+				<posy>0</posy>
+				<width>250</width>
+				<height>30</height>
+				<font>cirrus_24_Bold</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<scroll>false</scroll>
+				<align>right</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[14018]</label>
+			</control>
+		</control>
+
+		<!-- MENU ITEMS BELOW -->
+		<control type="group" id="9000">
+			<posx>-260</posx>
+			<posy>180</posy>
+			<!-- <include>CommonNowPlaying</include> --> <!-- GET RID OF FROM INCLUDES? -->
+			<control type="button" id="2">
+				<description>View As button</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<include>ButtonCommonValues</include>
+				<label>-</label>
+				<onleft>55</onleft>
+				<onright>55</onright>
+				<onup>8</onup>
+				<ondown>3</ondown>
+			</control>
+			<control type="button" id="3">
+				<description>Sort by button</description>
+				<posx>0</posx>
+				<posy>40</posy>
+				<include>ButtonCommonValues</include>
+				<label>103</label>
+				<onleft>55</onleft>
+				<onright>4</onright>
+				<onup>2</onup>
+				<ondown>99</ondown>
+			</control>
+			<control type="togglebutton" id="4">
+				<description>Sort asc</description>
+				<posx>220</posx>
+				<posy>53</posy>
+				<label>-</label>
+				<onleft>3</onleft>
+				<onright>55</onright>
+				<onup>2</onup>
+				<ondown>99</ondown>
+			</control>
+			<control type="radiobutton" id="99">
+				<description>Library button</description>
+				<posx>0</posx>
+				<posy>80</posy>
+				<label>$LOCALIZE[29800]</label>
+				<onclick>ReplaceWindow(MusicFiles)</onclick>
+				<selected>Window.IsVisible(MusicLibrary)</selected>
+				<include>ButtonCommonValues</include>
+				<onleft>55</onleft>
+				<onright>55</onright>
+				<onup>3</onup>
+				<ondown>16</ondown>
+			</control>
+			<control type="radiobutton" id="16">
+				<description>PartyMode</description>
+				<posx>0</posx>
+				<posy>120</posy>
+				<label>589</label>
+				<include>ButtonCommonValues</include>
+				<onleft>55</onleft>
+				<onright>55</onright>
+				<onup>99</onup>
+				<ondown>19</ondown>
+			</control>
+			<control type="radiobutton" id="19">
+				<description>Filter</description>
+				<posx>0</posx>
+				<posy>160</posy>
+				<include>ButtonCommonValues</include>
+				<label>587</label>
+				<onleft>55</onleft>
+				<onright>55</onright>
+				<onup>16</onup>
+				<ondown>201</ondown>
+			</control>
+			<control type="radiobutton" id="201">
+				<description>Toggle Fanart</description>
+				<posx>0</posx>
+				<posy>200</posy>
+				<include>ButtonCommonValues</include>
+				<label>31307</label>
+				<onclick>Skin.ToggleSetting(MusicLibraryFanart)</onclick>
+				<selected>Skin.HasSetting(MusicLibraryFanart)</selected>
+				<onleft>55</onleft>
+				<onright>55</onright>
+				<onup>19</onup>
+				<ondown>8</ondown>
+			</control>
+			<control type="button" id="8">
+				<description>Search</description>
+				<posx>0</posx>
+				<posy>240</posy>
+				<include>ButtonCommonValues</include>
+				<label>137</label>
+				<onleft>55</onleft>
+				<onright>55</onright>
+				<onup>201</onup>
+				<ondown>2</ondown>
+			</control>
+		</control>
+	</control>
+
+	<!-- LABELS FOR MUSIC VIDEO BREADCRUMB TRAIL -->
+	<control type="group">
+		<posx>20</posx>
+		<posy>100</posy>
+		<visible>Container.Content(MusicVideos)</visible>
+		<include>VisibleFadeEffect</include>
+		<animation effect="slide" end="-510,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+		<animation effect="slide" start="-510,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+		<control type="label">
+			<include>WindowTVShowTitleCommons</include>
+			<posx>0</posx>
+			<label>$LOCALIZE[20389]</label>
+		</control>
+	</control>
+
+	<!-- LABELS FOR MUSIC ARTISTS BREADCRUMB TRAIL -->		
+	<control type="group">
+		<posx>20</posx>
+		<posy>100</posy>
+		<visible>Container.Content(Artists)</visible>
+		<include>VisibleFadeEffect</include>
+		<animation effect="slide" end="-510,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+		<animation effect="slide" start="-510,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+		<control type="label">
+			<include>WindowTVShowTitleCommons</include>
+			<posx>0</posx>
+			<label>$LOCALIZE[133]</label>
+		</control>
+	</control>
+
+	<!-- LABELS FOR MUSIC SONGS BREADCRUMB TRAIL -->	
+	<control type="group">
+		<posx>20</posx>
+		<posy>100</posy>
+		<visible>Container.Content(Songs)</visible>
+		<include>VisibleFadeEffect</include>
+		<animation effect="slide" end="-510,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+		<animation effect="slide" start="-510,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+		<control type="label">
+			<include>WindowTVShowTitleCommons</include>
+			<posx>0</posx>
+			<label>$LOCALIZE[134]</label>
+		</control>
+	</control>
+
+	<!-- LABELS FOR MUSIC ALBUMS BREADCRUMB TRAIL -->	
+	<control type="group">
+		<posx>20</posx>
+		<posy>100</posy>
+		<visible>Container.Content(Albums)</visible>
+		<include>VisibleFadeEffect</include>
+		<animation effect="slide" end="-510,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+		<animation effect="slide" start="-510,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+		<control type="label">
+			<include>WindowTVShowTitleCommons</include>
+			<posx>0</posx>
+			<label>$LOCALIZE[132]</label>
+		</control>
+	</control>
+	
+	<!-- MUSIC - LIBRARY  label -->
+	<control type="group">
+		<posx>20</posx>
+		<posy>50</posy>
+		<animation effect="slide" end="-310,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+		<animation effect="slide" start="-310,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+		<control type="label">
+			<include>WindowTitleCommons</include>
+			<posx>0</posx>
+			<label>$LOCALIZE[10516]</label>
+		</control>
+	</control>
+	
+	<include>Clock</include>
+	
+</controls>
+</window>

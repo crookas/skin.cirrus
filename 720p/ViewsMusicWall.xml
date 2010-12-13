@@ -1,0 +1,177 @@
+<includes>
+<!-- ============================= MusicWallView====================== -->
+	<include name="MusicWallView">
+		<control type="group">
+		<visible>Control.IsVisible(525)</visible>
+			<control type="image"> <!-- bottom bar background -->
+				<posx>0</posx>
+				<posy>100r</posy>
+				<width>1280</width>
+				<height>700</height>
+				<aspectratio>stretch</aspectratio>
+ 				<texture>rightlistbackground.png</texture>
+			</control>
+			<control type="image"> <!-- darken the background a bit -->
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1280</width>
+				<height>620</height>
+				<aspectratio>stretch</aspectratio>
+ 				<texture>black-back3.png</texture>
+			</control>
+			<control type="image">
+				<posx>35r</posx>
+				<posy>350</posy>
+				<width>30</width>
+				<height>40</height>
+				<texture>rightarrow.png</texture>
+			</control>
+			<control type="image">
+				<posx>5</posx>
+				<posy>350</posy>
+				<width>30</width>
+				<height>40</height>
+				<texture flipx="true">rightarrow.png</texture>
+			</control>
+			<!-- Music info down thebottom -->	
+			<control type="group">
+				<posy>640</posy>
+				<visible>Container.Content(Albums)</visible>
+				<control type="label">
+					<posx>50</posx>
+					<posy>40</posy>
+					<width>400</width>
+					<height>25</height>
+					<label>$INFO[ListItem.Artist]</label>
+					<scroll>true</scroll>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>cirrus_24</font>
+					<textcolor>orange</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="label">
+					<posx>50</posx>
+					<posy>0</posy>
+					<width>400</width>
+					<height>25</height>
+					<label>$INFO[ListItem.Album]</label>
+					<wrapmultiline>false</wrapmultiline>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>cirrus_30</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="label">
+					<posx>40r</posx>
+					<posy>35</posy>
+					<width>300</width>
+					<height>25</height>
+					<label>$INFO[ListItem.Genre, [COLOR=orange]Genre:[/COLOR] ]</label>
+					<scroll>true</scroll>
+					<align>right</align>
+					<aligny>top</aligny>
+					<font>cirrus_24</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<wrapmultiline>false</wrapmultiline>
+					<visible>Container.Content(Albums)</visible>
+				</control>
+				<control type="label">
+					<description>Year txt</description>
+					<posx>40r</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>25</height>
+					<label>$INFO[listitem.Year]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>cirrus_30</font>
+					<textcolor>white</textcolor>
+				</control>
+			</control>
+			<!-- musicwall panel -->
+			<control type="panel" id="525">
+				<posx>40</posx>
+				<posy>155</posy>
+				<width>1200</width>
+				<height>450</height>
+				<onleft>513</onleft>
+				<onright>513</onright>
+				<onup>4</onup>
+				<ondown>513</ondown>
+				<viewtype label="MusicWallView">panel</viewtype>
+				<orientation>horizontal</orientation>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<preloaditems>2</preloaditems>
+				<!-- CHAGE BELOW TO ADD TO MORE SECTIONS -->
+				<visible>Container.Content(Albums)</visible>
+				<itemlayout height="150" width="150">
+					<control type="group">
+						<posx>0</posx>
+						<posy>0</posy>
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>150</width>
+							<height>150</height>
+							<bordersize>5</bordersize>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>200</fadetime>
+							<texture background="true" diffuse="masksquare.png">$INFO[Listitem.Icon]</texture>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>150</width>
+							<height>150</height>
+							<bordersize>5</bordersize>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>200</fadetime>
+							<texture diffuse="masksquare.png">GlassOverlay2.png</texture>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>150</width>
+							<height>150</height>
+							<bordersize>5</bordersize>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>200</fadetime>
+							<texture diffuse="masksquare.png">black-back3.png</texture>
+						</control>
+					</control>		
+				</itemlayout>
+				<focusedlayout height="150" width="150">
+					<control type="group">	
+						<posx>0</posx>
+						<posy>0</posy>
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>150</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>200</fadetime>
+							<bordersize>3</bordersize>
+							<texture background="true" diffuse="maskposter.png">$INFO[Listitem.Icon]</texture>
+							<bordertexture border="8">folder-focuswhitesquare.png</bordertexture>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>150</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>200</fadetime>
+							<bordersize>5</bordersize>
+							<texture diffuse="maskposter.png">GlassOverlay2.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
+</includes>

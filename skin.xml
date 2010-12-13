@@ -1,0 +1,12 @@
+<skin>
+	<defaultresolution>720p</defaultresolution>
+	<defaultresolutionwide>720p</defaultresolutionwide>
+	<defaultthemename>textures.xpr</defaultthemename>
+	<version>2.11</version>
+	<effectslowdown>.75</effectslowdown>
+	<credits>
+		<skinname>Cirrus</skinname>
+		<name>Made by Crookas from Confluence</name>
+		<name>Graphics by Crookas and Google Images</name>
+	</credits>
+</skin>

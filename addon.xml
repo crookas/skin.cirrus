@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+	id="skin.cirrus"
+	version="2.0"
+	name="Cirrus"
+	provider-name="Crookas">
+	<requires>
+		<import addon="xbmc.gui" version="2.11"/>
+		<import addon="script.recentlyadded" version="1.0.4"/>
+	</requires>
+	<extension 
+		point="xbmc.gui.skin"
+		defaultresolution="720p" 
+		defaultresolutionwide="720p"
+		defaultthemename="textures.xbt" 
+		effectslowdown="0.75"
+		debugging="false"/>
+		<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<minversion app="xbmc">28000</minversion>
+		<summary>Cirrus skin by Crookas</summary>
+		<description>Cirrus is a lightweight skin which has a focus on speed, ease of use and ease of navigation. It also uses TV logos, cleararts, and cdart if you want them.</description>
+	</extension>
+</addon>

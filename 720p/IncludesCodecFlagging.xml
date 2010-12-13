@@ -1,0 +1,312 @@
+<includes>
+	<include name="VideoCodecFlaggingConditions">
+		<control type="image">
+			<description>Video rez Image</description>
+			<width>110</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>$INFO[ListItem.VideoResolution,flagging/video/,.png]</texture>
+		</control>
+		<control type="image">
+			<description>Xvid Codec Image</description>
+			<width>94</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/video/xvid.png</texture>
+			<visible>substring(ListItem.VideoCodec,xvid)</visible>
+		</control>
+		<control type="image">
+			<description>Divx Codec Image</description>
+			<width>102</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/video/divx.png</texture>
+			<visible>substring(ListItem.VideoCodec,divx) | substring(ListItem.VideoCodec,div3) |substring(ListItem.VideoCodec,div4) | substring(ListItem.VideoCodec,div5) | substring(ListItem.VideoCodec,dx50)</visible>
+		</control>
+		<control type="image">
+			<description>h264 Codec Image</description>
+			<width>97</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/video/h264.png</texture>
+			<visible>substring(ListItem.VideoCodec,h264)</visible>
+		</control>
+		<control type="image">
+			<description>avc1 Codec Image</description>
+			<width>81</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/video/avc1.png</texture>
+			<visible>substring(ListItem.VideoCodec,avc1)</visible>
+		</control>
+		<control type="image">
+			<description>wvc1 Codec Image</description>
+			<width>70</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/video/wvc1.png</texture>
+			<visible>substring(ListItem.VideoCodec,wvc1)</visible>
+		</control>
+		<control type="image">
+			<description>mpeg1video Codec Image</description>
+			<width>102</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/video/mpeg1video.png</texture>
+			<visible>substring(ListItem.VideoCodec,mpeg1video)</visible>
+		</control>
+		<control type="image">
+			<description>mpeg2video Codec Image</description>
+			<width>102</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/video/mpeg2video.png</texture>
+			<visible>substring(ListItem.VideoCodec,mpeg2video)</visible>
+		</control>
+	</include>
+<!-- 
+	<include name="VideoTypeHackFlaggingConditions">
+		<control type="image">
+			<description>Bluray Image</description>
+			<width>53</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/video/bluray.png</texture>
+			<visible>substring(ListItem.filename,bluray)</visible>
+		</control>
+		<control type="image">
+			<description>HDDVD Image</description>
+			<width>107</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/video/hddvd.png</texture>
+			<visible>substring(ListItem.filename,hddvd)</visible>
+		</control>
+	</include> -->
+<!-- ============== MPAA RATINGS FLAGS ============= -->
+	<include name="VideoMPAAFlaggingConditions">
+	<!-- AUSTRALIAN -->
+	<control type="image">
+			<description>Australia Rated G</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/australia_g.png</texture>
+			<visible>substring(listitem.mpaa,Australia:G)</visible>
+		</control>
+		<control type="image">
+			<description>Australia Rated PG</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/australia_pg.png</texture>
+			<visible>substring(listitem.mpaa,Australia:PG)</visible>
+		</control>
+		<control type="image">
+			<description>Australia Rated M</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/australia_m.png</texture>
+			<visible>substring(listitem.mpaa,Australia:M) + ! substring(listitem.mpaa,Australia:MA)</visible>
+		</control>
+		<control type="image">
+			<description>Australia Rated MA</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/australia_ma.png</texture>
+			<visible>substring(listitem.mpaa,Australia:MA)</visible>
+		</control>
+		<control type="image">
+			<description>Australia Rated R</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/australia_r.png</texture>
+			<visible>substring(listitem.mpaa,Australia:R)</visible>
+		</control>
+		<control type="image">
+			<description>Australia Rated X</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/australia_x.png</texture>
+			<visible>substring(listitem.mpaa,Australia:X)</visible>
+		</control>
+		<!-- US -->
+		<control type="image">
+			<description>Rated G</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/mpaa_general.png</texture>
+			<visible>substring(listitem.mpaa,Rated G)</visible>
+		</control>
+		<control type="image">
+			<description>Rated PG</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/mpaa_pg.png</texture>
+			<visible>substring(listitem.mpaa,Rated PG) + !substring(listitem.mpaa,Rated PG-13)</visible>
+		</control>
+		<control type="image">
+			<description>Rated PG-13</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/mpaa_pg13.png</texture>
+			<visible>substring(listitem.mpaa,Rated PG-13)</visible>
+		</control>
+		<control type="image">
+			<description>Rated R</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/mpaa_restricted.png</texture>
+			<visible>substring(Listitem.mpaa,Rated R)</visible>
+		</control>
+		<control type="image">
+			<description>Rated NC-17</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/mpaa_nc17.png</texture>
+			<visible>substring(Listitem.mpaa,Rated NC)</visible>
+		</control>
+		<!-- UK -->
+		<control type="image">
+			<description>UK Rated U</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/UK_u.png</texture>
+			<visible>substring(listitem.mpaa,UK:U)</visible>
+		</control>
+		<control type="image">
+			<description>UK Rated PG</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/UK_pg.png</texture>
+			<visible>substring(listitem.mpaa,UK:PG)</visible>
+		</control>
+		<control type="image">
+			<description>UK Rated 12</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/UK_12a.png</texture>
+			<visible>substring(listitem.mpaa,UK:12a)</visible>
+		</control>
+		<control type="image">
+			<description>UK Rated 12a</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/UK_12.png</texture>
+			<visible>substring(listitem.mpaa,UK:12) + !substring(listitem.mpaa,UK:12a)</visible>
+		</control>
+		<control type="image">
+			<description>UK Rated 15</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/UK_15.png</texture>
+			<visible>substring(listitem.mpaa,UK:15)</visible>
+		</control>
+		<control type="image">
+			<description>UK Rated 18</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/UK_18.png</texture>
+			<visible>substring(listitem.mpaa,UK:18)</visible>
+		</control>
+		<control type="image">
+			<description>UK Rated R18</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/UK_r18.png</texture>
+			<visible>substring(listitem.mpaa,UK:R18)</visible>
+		</control>
+		<!-- No Rating -->
+		<control type="image">
+			<description>No Rating</description>
+			<width>249</width>
+			<height>57</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/ratings/mpaa_notrated.png</texture>
+			<visible>isEmpty(listitem.mpaa)</visible>
+		</control>
+	</include>
+<!-- ========= AUDIO FLAGING ============= -->
+	<include name="AudioCodecFlaggingConditions">
+		<control type="image">
+			<description>mp3 Codec Image</description>
+			<width>95</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audio/mp3.png</texture>
+			<visible>substring(ListItem.AudioCodec,mp3)</visible>
+		</control>
+		<control type="image">
+			<description>dts Codec Image</description>
+			<width>106</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audio/dts.png</texture>
+			<visible>substring(ListItem.AudioCodec,dca)</visible>
+		</control>
+		<control type="image">
+			<description>ac3 Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audio/ac3.png</texture>
+			<visible>substring(ListItem.AudioCodec,ac3) + !substring(ListItem.AudioChannels,6)</visible>
+		</control>
+		<control type="image">
+			<description>aac Image</description>
+			<width>94</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audio/aac.png</texture>
+			<visible>substring(ListItem.AudioCodec,aac)</visible>
+		</control>
+		<control type="image">
+			<description>Dolby Digital Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audio/dolbydigital.png</texture>
+			<visible>substring(ListItem.AudioCodec,ac3) + substring(ListItem.AudioChannels,6)</visible>
+		</control>
+		<control type="image">
+			<description>WMA Pro Codec Image</description>
+			<width>82</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audio/wmapro.png</texture>
+			<visible>substring(ListItem.AudioCodec,wmapro)</visible>
+		</control>
+		<control type="image">
+			<description>Audio Channels Image</description>
+			<width>65</width>
+			<height>28</height>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>$INFO[ListItem.AudioChannels,flagging/audio/,.png]</texture>
+		</control>
+	</include>
+	<include name="AspectCodecFlaggingConditions">
+		<control type="image">
+			<description>Aspectratio Image</description>
+			<width>48</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>$INFO[ListItem.VideoAspect,flagging/aspectratio/,.png]</texture>
+		</control>
+	</include>
+</includes>
