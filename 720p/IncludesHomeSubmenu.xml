@@ -93,7 +93,7 @@
 				<onup>9011</onup>
 				<ondown>9011</ondown>
 				<itemgap>0</itemgap>
-				<visible>Container(9000).HasFocus(3)</visible>
+				<visible>Container(9000).HasFocus(5)</visible>
 		  
 				<control type="button" id="90111">
 					<include>ButtonHomeSubCommonValues</include>
@@ -149,7 +149,7 @@
 				<onup>9014</onup>
 				<ondown>9014</ondown>
 				<itemgap>0</itemgap>
-				<visible>Container(9000).HasFocus(5)</visible>
+				<visible>Container(9000).HasFocus(9)</visible>
  
 				<control type="button" id="90141">
 					<include>ButtonHomeSubCommonValues</include>
@@ -210,7 +210,7 @@
 				<onup>9015</onup>
 				<ondown>9015</ondown>
 				<itemgap>0</itemgap>
-				<visible>Container(9000).HasFocus(8) + [[Skin.HasSetting(HomeScriptButton1) + !IsEmpty(Skin.String(HomeScriptButton1_label))] | [Skin.HasSetting(HomeScriptButton2) + !IsEmpty(Skin.String(HomeScriptButton2_label))] | [Skin.HasSetting(HomeScriptButton3) + !IsEmpty(Skin.String(HomeScriptButton3_label))] | [Skin.HasSetting(HomeScriptButton4) + !IsEmpty(Skin.String(HomeScriptButton4_label))] | [Skin.HasSetting(HomeScriptButton5) + !IsEmpty(Skin.String(HomeScriptButton5_label))] | [Skin.HasSetting(HomeScriptButton6) + !IsEmpty(Skin.String(HomeScriptButton6_label))]]</visible>
+				<visible>Container(9000).HasFocus(10) + [[Skin.HasSetting(HomeScriptButton1) + !IsEmpty(Skin.String(HomeScriptButton1_label))] | [Skin.HasSetting(HomeScriptButton2) + !IsEmpty(Skin.String(HomeScriptButton2_label))] | [Skin.HasSetting(HomeScriptButton3) + !IsEmpty(Skin.String(HomeScriptButton3_label))] | [Skin.HasSetting(HomeScriptButton4) + !IsEmpty(Skin.String(HomeScriptButton4_label))] | [Skin.HasSetting(HomeScriptButton5) + !IsEmpty(Skin.String(HomeScriptButton5_label))] | [Skin.HasSetting(HomeScriptButton6) + !IsEmpty(Skin.String(HomeScriptButton6_label))]]</visible>
 				<control type="button" id="90151">
 					<description>Button1</description>
 					<include>ButtonHomeSubCommonValues</include>
@@ -273,7 +273,7 @@
 				<onup>9016</onup>
 				<ondown>9016</ondown>
 				<itemgap>0</itemgap>
-				<visible>Container(9000).HasFocus(7)</visible>
+				<visible>Container(9000).HasFocus(3)</visible>
 				<control type="button" id="901671">
 					<include>ButtonHomeSubCommonValues</include>
 					<label>1219</label>
@@ -328,7 +328,7 @@
 				<onup>9017</onup>
 				<ondown>9017</ondown>
 				<itemgap>0</itemgap>
-				<visible>Container(9000).HasFocus(8)</visible>
+				<visible>Container(9000).HasFocus(4)</visible>
 				<control type="button" id="90171">
 					<include>ButtonHomeSubCommonValues</include>
 					<label>369</label>

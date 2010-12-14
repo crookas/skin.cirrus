@@ -112,7 +112,7 @@
 				<onup>8002</onup>
 				<ondown>9000</ondown>
 				<itemgap>0</itemgap>
-				<visible>Container(9000).HasFocus(3)</visible>
+				<visible>Container(9000).HasFocus(5)</visible>
 				<itemlayout width="270" height="245">
 					<control type="group">	
 						<posx>20</posx>
@@ -188,7 +188,7 @@
 				<onup>9000</onup>
 				<ondown>9000</ondown>
 				<itemgap>0</itemgap>
-				<visible>Container(9000).HasFocus(5)</visible>
+				<visible>Container(9000).HasFocus(9)</visible>
  				<itemlayout width="270" height="245">
 					<control type="group">	
 						<posx>20</posx>
@@ -272,7 +272,7 @@
 				<onup>9000</onup>
 				<ondown>9000</ondown>
 				<itemgap>0</itemgap>
-				<visible>Container(9000).HasFocus(8) + [[Skin.HasSetting(HomeScriptButton1) + !IsEmpty(Skin.String(HomeScriptButton1_label))] | [Skin.HasSetting(HomeScriptButton2) + !IsEmpty(Skin.String(HomeScriptButton2_label))] | [Skin.HasSetting(HomeScriptButton3) + !IsEmpty(Skin.String(HomeScriptButton3_label))] | [Skin.HasSetting(HomeScriptButton4) + !IsEmpty(Skin.String(HomeScriptButton4_label))] | [Skin.HasSetting(HomeScriptButton5) + !IsEmpty(Skin.String(HomeScriptButton5_label))] | [Skin.HasSetting(HomeScriptButton6) + !IsEmpty(Skin.String(HomeScriptButton6_label))]]</visible>
+				<visible>Container(9000).HasFocus(10) + [[Skin.HasSetting(HomeScriptButton1) + !IsEmpty(Skin.String(HomeScriptButton1_label))] | [Skin.HasSetting(HomeScriptButton2) + !IsEmpty(Skin.String(HomeScriptButton2_label))] | [Skin.HasSetting(HomeScriptButton3) + !IsEmpty(Skin.String(HomeScriptButton3_label))] | [Skin.HasSetting(HomeScriptButton4) + !IsEmpty(Skin.String(HomeScriptButton4_label))] | [Skin.HasSetting(HomeScriptButton5) + !IsEmpty(Skin.String(HomeScriptButton5_label))] | [Skin.HasSetting(HomeScriptButton6) + !IsEmpty(Skin.String(HomeScriptButton6_label))]]</visible>
 				<itemlayout width="270" height="245">
 					<control type="group">	
 						<posx>20</posx>
@@ -363,7 +363,7 @@
 				<onup>8000</onup>
 				<ondown>9000</ondown>
 				<itemgap>0</itemgap>
-				<visible>Container(9000).HasFocus(10)</visible>
+				<visible>Container(9000).HasFocus(3)</visible>
 				<itemlayout width="270" height="245">
 					<control type="group">	
 						<posx>20</posx>
@@ -443,7 +443,7 @@
 				<onup>8001</onup>
 				<ondown>9000</ondown>
 				<itemgap>0</itemgap>
-				<visible>Container(9000).HasFocus(11)</visible>
+				<visible>Container(9000).HasFocus(4)</visible>
 				<itemlayout width="270" height="245">
 					<control type="group">	
 						<posx>20</posx>

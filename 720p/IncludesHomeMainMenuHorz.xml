@@ -212,12 +212,6 @@
 					<thumb>$INFO[Skin.String(Home_Custom_Back_Programs_Folder)]</thumb>
 					<visible>!Skin.HasSetting(HomeMenuNoProgramsButton)</visible>
 				</item>
-				<item id="9">
-					<label>13000</label>
-					<onclick>ActivateWindow(Settings)</onclick>
-					<icon>special://skin/backgrounds/settings.jpg</icon>
-					<thumb>$INFO[Skin.String(Home_Custom_Back_Settings_Folder)]</thumb>
-				</item>
 				<!-- CUSTOM HOME MENU ITEMS -->
 				<item id="10">
 					<description>Custom Movie One</description>
@@ -298,6 +292,12 @@
 					<thumb>$INFO[Skin.String(Menu_Custom10_Folder)]</thumb>
 					<onclick>XBMC.ActivateWindow(10025,$INFO[Skin.String(Menu_Custom10_Path)],return)</onclick>
 					<visible>Skin.HasSetting(Menu_Custom10)</visible>
+				</item>
+				<item id="9">
+					<label>13000</label>
+					<onclick>ActivateWindow(Settings)</onclick>
+					<icon>special://skin/backgrounds/settings.jpg</icon>
+					<thumb>$INFO[Skin.String(Home_Custom_Back_Settings_Folder)]</thumb>
 				</item>
 			</content>
 		</control>
