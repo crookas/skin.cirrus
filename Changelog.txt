@@ -1,3 +1,9 @@
+2.1
+-- Moved now playing info and time/weather for low horz menu
+-- Added new submenu for horz main menu (press down now for vertical submenu)
+-- Fixed bug in music now playing
+-- Added new includes for HomeMainMenuLow and HomeNowPlayingLowMenu
+
 2.0
 -- Added Coverflow music view
 -- Added Coverflow movies view
