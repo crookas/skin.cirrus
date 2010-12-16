@@ -3,8 +3,8 @@
   
     <!-- Music NOW PLAYING Info -->
     <control type="group">
-      <posx>30</posx>
-      <posy>220</posy>
+      <posx>750</posx>
+      <posy>330</posy>
       <visible>Player.HasAudio + !Skin.HasSetting(homepageNowplayingInfo)</visible>
       <include>VisibleFadeEffect</include>
       <include>Window_OpenClose_Animation</include>
@@ -131,8 +131,8 @@
     
     <!-- VIDEO NOW PLAYING -->
     <control type="group">
-      <posx>30</posx>
-      <posy>220</posy>
+      <posx>750</posx>
+      <posy>330</posy>
       <visible>Player.HasVideo + !Skin.HasSetting(homepageNowplayingInfo)</visible>
       <include>VisibleFadeEffect</include>
       <include>Window_OpenClose_Animation</include>
