@@ -32,7 +32,8 @@
     <include>CommonMediaPlayingBackground</include>
     <include condition="Skin.HasSetting(homepageHideRecentlyAdded)">HomeRecentlyAddedInfo</include>
     <include condition="!Skin.HasSetting(horzHomeMenu)">HomeNowPlaying</include>
-    <include condition="Skin.HasSetting(horzHomeMenu)">HomeNowPlayingHorz</include>
+    <include condition="Skin.HasSetting(horzHomeMenu) + !Skin.HasSetting(horzLowHomeMenu)">HomeNowPlayingHorz</include>
+    <include condition="Skin.HasSetting(horzLowHomeMenu)">HomeNowPlayingHorzLow</include>
 
     <control type="group">
   
@@ -72,7 +73,8 @@
 
     <!-- MAIN MENUS -->
     <include condition="!Skin.HasSetting(horzHomeMenu)">HomeMainMenu</include>
-    <include condition="Skin.HasSetting(horzHomeMenu)">HomeMainMenuHorz</include>
+    <include condition="Skin.HasSetting(horzHomeMenu) + !Skin.HasSetting(horzLowHomeMenu)">HomeMainMenuHorz</include>
+    <include condition="Skin.HasSetting(horzLowHomeMenu)">HomeMainMenuHorzLow</include>
 
 
     <control type="image">
@@ -83,7 +85,6 @@
       <height>40</height>
       <texture>xbmc_logo_white.png</texture>
       <visible>!Skin.HasSetting(cleanHome)</visible>
-      <visible>!Skin.HasSetting(horzHomeMenu)</visible>
     </control>
     <control type="image">
       <description>LOGO Mirror</description>
@@ -93,15 +94,12 @@
       <height>40</height>
       <texture diffuse="diffuse_mirror.png" flipy="true">xbmc_logo_white.png</texture>
       <visible>!Skin.HasSetting(cleanHome)</visible>
-	  <visible>!Skin.HasSetting(horzHomeMenu)</visible>
     </control>
 
     <!-- BUTTONS BOTTOM LEFT (not visible if cleanHome selected -->
     <control type="group" id="10">
       <posx>15</posx>
       <posy>55r</posy>
-	  <visible>!Skin.HasSetting(horzHomeMenu)</visible>
-	  <visible>!Skin.HasSetting(cleanHome)</visible>
       <control type="button" id="20">
         <description>Power push button</description>
         <posx>90</posx>
@@ -118,6 +116,7 @@
         <onright>9000</onright>
         <onup>9000</onup>
         <ondown>9000</ondown>
+        <visible>!Skin.HasSetting(cleanHome)</visible>
       </control>
       <control type="button" id="21">
         <description>Favourites push button</description>
@@ -135,6 +134,7 @@
         <onright>20</onright>
         <onup>9000</onup>
         <ondown>9000</ondown>
+        <visible>!Skin.HasSetting(cleanHome)</visible>
       </control>
       <control type="button" id="22">
         <description>Play Disc Media push button</description>
@@ -153,6 +153,7 @@
         <onup>9000</onup>
         <ondown>9000</ondown>
         <visible>System.HasMediaDVD</visible>
+        <visible>!Skin.HasSetting(cleanHome)</visible>
       </control>
       <control type="button" id="22">
         <description>Play Disc Media push button</description>
@@ -170,7 +171,7 @@
         <onright>21</onright>
         <onup>9000</onup>
         <ondown>9000</ondown>
-        <visible>!System.HasMediaDVD</visible>
+        <visible>!System.HasMediaDVD + !Skin.HasSetting(cleanHome)</visible>
       </control>
     </control>
     </control>
@@ -204,7 +205,7 @@
   
   <!-- Weather, time etc VERT MENU -->
     <control type="group">
-    <visible>!Skin.HasSetting(homeNoClock) + !Skin.HasSetting(horzHomeMenu)</visible>
+    <visible>!Skin.HasSetting(homeNoClock) + !Skin.HasSetting(horzLowHomeMenu)</visible>
     <posx>60r</posx>
     <posy>200r</posy>
     <width>500</width>
@@ -269,7 +270,7 @@
     </control>
   <!-- LOW HORZ menu -->
     <control type="group">
-    <visible>!Skin.HasSetting(homeNoClock) + Skin.HasSetting(horzHomeMenu)</visible>
+    <visible>!Skin.HasSetting(homeNoClock) + Skin.HasSetting(horzLowHomeMenu)</visible>
     <posx>30</posx>
     <posy>20</posy>
     <width>500</width>
