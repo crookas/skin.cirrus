@@ -1,0 +1,242 @@
+<includes>
+	<include name="HomeMainMenuHorzLow">
+
+		<!-- Background for low hoizontal menu -->
+		<control type="image">
+			<posx>0</posx>
+			<posy>100r</posy>
+			<width>1280</width>
+			<height>105</height>
+			<texture>horzmenuback.png</texture>
+			<visible>Skin.HasSetting(horzHomeMenu) + Skin.HasSetting(horzLowHomeMenu)</visible>
+		</control>
+	
+		<!-- HORIZONTAL MAIN MENU -->
+		<control type="wraplist" id="9000">
+            <posx>-175</posx>
+            <posy>350r</posy>
+            <width>1515</width>
+            <height>400</height>
+            <onleft>9000</onleft>
+            <onright>9000</onright>
+            <onup>9001</onup>
+            <ondown>-</ondown>
+            <pagecontrol>-</pagecontrol>
+            <scrolltime>300</scrolltime>
+            <focusposition>1</focusposition>
+            <orientation>horizontal</orientation>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="30" time="200" condition="Window.IsVisible(1113) | ControlGroup(9001).HasFocus | ControlGroup(10).HasFocus | Control.HasFocus(8000) | Control.HasFocus(8001)">conditional</animation>
+
+			<!-- ITEM LAYOUT -->
+            <itemlayout height="100" width="405">
+                <control type="label">
+                    <posx>460</posx>
+                    <posy>268</posy>
+                    <width>360</width><!-- width left and right of center word space -->
+                    <height>40</height><!-- height left and right of center word space -->
+                    <font>cirrus_50</font>
+                    <textcolor>grey3</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>460</posx>
+                    <posy>218</posy>
+                    <width>360</width>
+                    <height>40</height>
+                    <font>cirrus_50</font>
+                    <textcolor>grey3</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[ListItem.Label]</label>
+                    <animation effect="fade" start="10" end="10" time="0" condition="true">Conditional</animation>
+                </control>
+            </itemlayout>
+
+			<!-- FOCUSED LAYOUT LOWERED -->
+            <focusedlayout height="100" width="350">
+                <control type="label">
+                    <posx>405</posx>
+                    <posy>268</posy>
+                    <width>360</width><!-- width of word space -->
+                    <height>40</height><!-- height of word space-->
+                    <font>cirrus_50</font>
+                    <textcolor>white</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <posx>405</posx>
+                    <posy>218</posy>
+                    <width>360</width><!-- width of word space -->
+                    <height>40</height><!-- height of word space-->
+                    <font>cirrus_50</font>
+                    <textcolor>grey3</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[ListItem.Label]</label>
+                    <animation effect="fade" start="10" end="10" time="0" condition="true">Conditional</animation>
+                </control>
+   			</focusedlayout>
+			
+			<content>
+				<item id="2">
+					<label>3</label>
+					<onclick>ActivateWindow(Videos)</onclick>
+					<icon>special://skin/backgrounds/videos.jpg</icon>
+					<thumb>$INFO[Skin.String(Home_Custom_Back_Video_Folder)]</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoVideosButton) + ![Skin.HasSetting(HomeMenuNoMoviesButton) + Skin.HasSetting(HomeMenuNoTVShowsButton)]</visible>
+				</item>
+				<item id="2">
+					<label>3</label>
+					<onclick>ActivateWindow(VideoFiles)</onclick>
+					<icon>special://skin/backgrounds/videos.jpg</icon>
+					<thumb>$INFO[Skin.String(Home_Custom_Back_Video_Folder)]</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoVideosButton) + [Skin.HasSetting(HomeMenuNoMoviesButton) + Skin.HasSetting(HomeMenuNoTVShowsButton)]</visible>
+				</item>
+				<item id="3">
+					<label>20342</label>
+					<onclick>ActivateWindow(VideoLibrary,MovieTitles,return)</onclick>
+					<icon>special://skin/backgrounds/movies.jpg</icon>
+					<thumb>$INFO[Skin.String(Home_Custom_Back_Movies_Folder)]</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoMoviesButton) + Library.HasContent(Movies)</visible>
+				</item>
+				<item id="4">
+					<label>20343</label>
+					<onclick>ActivateWindow(VideoLibrary,TVShowTitles,return)</onclick>
+					<icon>special://skin/backgrounds/tv_shows.jpg</icon>
+					<thumb>$INFO[Skin.String(Home_Custom_Back_TVShow_Folder)]</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoTVShowsButton) + Library.HasContent(TVShows)</visible>
+				</item>
+				<item id="5">
+					<label>2</label>
+					<onclick>ActivateWindow(Music)</onclick>
+					<icon>special://skin/backgrounds/music.jpg</icon>
+					<thumb>$INFO[Skin.String(Home_Custom_Back_Music_Folder)]</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoMusicButton)</visible>
+				</item>
+				<item id="6">
+					<label>1</label>
+					<onclick>ActivateWindow(Pictures)</onclick>
+					<icon>special://skin/backgrounds/pictures.jpg</icon>
+					<thumb>$INFO[Skin.String(Home_Custom_Back_Pictures_Folder)]</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoPicturesButton)</visible>
+				</item>
+				<item id="7">
+					<label>8</label>
+					<onclick>ActivateWindow(Weather)</onclick>
+					<icon>special://skin/backgrounds/weather.jpg</icon>
+					<thumb>$INFO[Skin.String(Home_Custom_Back_Weather_Folder)]</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoWeatherButton)</visible>
+					<visible>!Skin.HasSetting(ShowWeatherFanart) | IsEmpty(Skin.String(WeatherFanartDir))</visible>
+				</item>
+				<item id="7">
+					<label>8</label>
+					<onclick>ActivateWindow(Weather)</onclick>
+					<icon>special://skin/backgrounds/weather.jpg</icon>
+					<thumb>$INFO[Skin.String(WeatherFanartDir)]$INFO[Weather.FanartCode]</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoWeatherButton)</visible>
+					<visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))</visible>
+				</item>
+				<item id="8">
+					<label>0</label>
+					<onclick>ActivateWindow(Programs,Addons,return)</onclick>
+					<icon>special://skin/backgrounds/programs.jpg</icon>
+					<thumb>$INFO[Skin.String(Home_Custom_Back_Programs_Folder)]</thumb>
+					<visible>!Skin.HasSetting(HomeMenuNoProgramsButton)</visible>
+				</item>
+				<!-- CUSTOM HOME MENU ITEMS -->
+				<item id="10">
+					<description>Custom Movie One</description>
+					<label>$INFO[Skin.String(Menu_Custom1_Label)]</label>
+					<icon>special://skin/media/backgrounds/custom.jpg</icon>
+					<thumb>$INFO[Skin.String(Menu_Custom1_Folder)]</thumb>
+					<onclick>$INFO[Skin.String(Menu_Custom1_Path)]</onclick>
+					<visible>Skin.HasSetting(Menu_Custom1)</visible>
+				</item>
+				<item id="11">
+					<description>Custom Movie Two</description>
+					<label>$INFO[Skin.String(Menu_Custom2_Label)]</label>
+					<icon>special://skin/media/backgrounds/custom.jpg</icon>
+					<thumb>$INFO[Skin.String(Menu_Custom2_Folder)]</thumb>
+					<onclick>$INFO[Skin.String(Menu_Custom2_Path)]</onclick>
+					<visible>Skin.HasSetting(Menu_Custom2)</visible>
+				</item>
+				<item id="12">
+					<description>Custom Movie Three</description>
+					<label>$INFO[Skin.String(Menu_Custom3_Label)]</label>
+					<icon>special://skin/media/backgrounds/custom.jpg</icon>
+					<thumb>$INFO[Skin.String(Menu_Custom3_Folder)]</thumb>
+					<onclick>$INFO[Skin.String(Menu_Custom3_Path)]</onclick>
+					<visible>Skin.HasSetting(Menu_Custom3)</visible>
+				</item>
+				<item id="13">
+					<description>Custom Movie Seven</description>
+					<label>$INFO[Skin.String(Menu_Custom7_Label)]</label>
+					<icon>special://skin/media/backgrounds/custom.jpg</icon>
+					<thumb>$INFO[Skin.String(Menu_Custom7_Folder)]</thumb>
+					<onclick>$INFO[Skin.String(Menu_Custom7_Path)]</onclick>
+					<visible>Skin.HasSetting(Menu_Custom7)</visible>
+				</item>
+				<item id="14">
+					<description>Custom Movie Eight</description>
+					<label>$INFO[Skin.String(Menu_Custom8_Label)]</label>
+					<icon>special://skin/media/backgrounds/custom.jpg</icon>
+					<thumb>$INFO[Skin.String(Menu_Custom8_Folder)]</thumb>
+					<onclick>$INFO[Skin.String(Menu_Custom8_Path)]</onclick>
+					<visible>Skin.HasSetting(Menu_Custom8)</visible>
+				</item>
+				<item id="15">
+					<description>Custom Movie Four</description>
+					<label>$INFO[Skin.String(Menu_Custom4_Label)]</label>
+					<icon>special://skin/media/backgrounds/custom.jpg</icon>
+					<thumb>$INFO[Skin.String(Menu_Custom4_Folder)]</thumb>
+					<onclick>XBMC.ActivateWindow(10025,$INFO[Skin.String(Menu_Custom4_Path)],return)</onclick>
+					<visible>Skin.HasSetting(Menu_Custom4)</visible>
+				</item>
+				<item id="16">
+					<description>Custom Movie Five</description>
+					<label>$INFO[Skin.String(Menu_Custom5_Label)]</label>
+					<icon>special://skin/media/backgrounds/custom.jpg</icon>
+					<thumb>$INFO[Skin.String(Menu_Custom5_Folder)]</thumb>
+					<onclick>XBMC.ActivateWindow(10025,$INFO[Skin.String(Menu_Custom5_Path)],return)</onclick>
+					<visible>Skin.HasSetting(Menu_Custom5)</visible>
+				</item>
+				<item id="17">
+					<description>Custom Movie Six</description>
+					<label>$INFO[Skin.String(Menu_Custom6_Label)]</label>
+					<icon>special://skin/media/backgrounds/custom.jpg</icon>
+					<thumb>$INFO[Skin.String(Menu_Custom6_Folder)]</thumb>
+					<onclick>XBMC.ActivateWindow(10025,$INFO[Skin.String(Menu_Custom6_Path)],return)</onclick>
+					<visible>Skin.HasSetting(Menu_Custom6)</visible>
+				</item>
+				<item id="18">
+					<description>Custom Movie Nine</description>
+					<label>$INFO[Skin.String(Menu_Custom9_Label)]</label>
+					<icon>special://skin/media/backgrounds/custom.jpg</icon>
+					<thumb>$INFO[Skin.String(Menu_Custom9_Folder)]</thumb>
+					<onclick>XBMC.ActivateWindow(10025,$INFO[Skin.String(Menu_Custom9_Path)],return)</onclick>
+					<visible>Skin.HasSetting(Menu_Custom9)</visible>
+				</item>
+				<item id="19">
+					<description>Custom Movie Ten</description>
+					<label>$INFO[Skin.String(Menu_Custom10_Label)]</label>
+					<icon>special://skin/media/backgrounds/custom.jpg</icon>
+					<thumb>$INFO[Skin.String(Menu_Custom10_Folder)]</thumb>
+					<onclick>XBMC.ActivateWindow(10025,$INFO[Skin.String(Menu_Custom10_Path)],return)</onclick>
+					<visible>Skin.HasSetting(Menu_Custom10)</visible>
+				</item>
+				<item id="9">
+					<label>13000</label>
+					<onclick>ActivateWindow(Settings)</onclick>
+					<icon>special://skin/backgrounds/settings.jpg</icon>
+					<thumb>$INFO[Skin.String(Home_Custom_Back_Settings_Folder)]</thumb>
+				</item>
+			</content>
+		</control>
+
+</include>
+</includes>
