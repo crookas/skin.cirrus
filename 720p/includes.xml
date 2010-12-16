@@ -18,11 +18,13 @@
   <include file="IncludesHomeRecentlyAdded.xml" />
   <include file="IncludesHomeNowPlaying.xml" />
   <include file="IncludesHomeNowPlayingHorz.xml" />
+  <include file="IncludesHomeNowPlayingHorzLow.xml" />
   <include file="IncludesHomeSubmenuHorz.xml" />
   <include file="IncludesHomeSubmenuHorzLow.xml" />
   <include file="IncludesHomeSubmenu.xml" />
   <include file="IncludesHomeMainMenu.xml" />
   <include file="IncludesHomeMainMenuHorz.xml" />
+  <include file="IncludesHomeMainMenuHorzLow.xml" />
   <include file="ViewsAddonBrowser.xml" />
 
   <constant name="FanartCrossfadeTime">400</constant>
@@ -229,14 +231,15 @@
   </include>
 <!-- Home sub-menu stuff -->
   <include name="ButtonHomeSubCommonValues">
-    <height>40</height>
-    <width>195</width>
+    <height>30</height>
+    <width>240</width>
     <textoffsetx>20</textoffsetx>
-    <textwidth>195</textwidth>
+    <textwidth>240</textwidth>
     <aligny>center</aligny>
+    <align>center</align>
     <font>cirrus_18_Bold</font>
-    <texturefocus border="0" flipx="true" aspectratio="stretch">rightwhitegradient.png</texturefocus>
-	<texturenofocus border="2,2,2,2" flipx="true" diffuse="rowdiffuse.png">rowblank2.png</texturenofocus>
+    <texturefocus border="0" flipx="true" aspectratio="stretch">InfoMessagePanel2.png</texturefocus>
+	<!-- <texturenofocus border="2,2,2,2" flipx="true" diffuse="rowdiffuse.png">rowblank2.png</texturenofocus> -->
     <focusedcolor>white</focusedcolor>
   </include>
   <include name="ButtonHorzHomeSubCommonValues">
