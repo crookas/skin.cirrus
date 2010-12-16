@@ -4,33 +4,23 @@
 		<!-- Background for hoizontal menu -->
 		<control type="image">
 			<posx>0</posx>
-			<posy>423</posy>
+			<posy>373</posy>
 			<width>1280</width>
 			<height>80</height>
 			<texture>horzmenuback.png</texture>
 			<visible>Skin.HasSetting(horzHomeMenu) + !Skin.HasSetting(horzLowHomeMenu)</visible>
 		</control>
-
-		<!-- Background for low hoizontal menu -->
-		<control type="image">
-			<posx>0</posx>
-			<posy>100r</posy>
-			<width>1280</width>
-			<height>105</height>
-			<texture>horzmenuback.png</texture>
-			<visible>Skin.HasSetting(horzHomeMenu) + Skin.HasSetting(horzLowHomeMenu)</visible>
-		</control>
 	
 		<!-- HORIZONTAL MAIN MENU -->
 		<control type="wraplist" id="9000">
             <posx>-175</posx>
-            <posy>300r</posy>
+            <posy>350r</posy>
             <width>1515</width>
-            <height>300</height>
+            <height>400</height>
             <onleft>9000</onleft>
             <onright>9000</onright>
-            <onup>9001</onup>
-            <ondown>-</ondown>
+            <onup>Control.SetFocus(8004,0)</onup>
+            <ondown>9001</ondown>
             <pagecontrol>-</pagecontrol>
             <scrolltime>300</scrolltime>
             <focusposition>1</focusposition>
@@ -39,7 +29,7 @@
             <animation effect="fade" start="100" end="30" time="200" condition="Window.IsVisible(1113) | ControlGroup(9001).HasFocus | ControlGroup(10).HasFocus | Control.HasFocus(8000) | Control.HasFocus(8001)">conditional</animation>
 
 			<!-- ITEM LAYOUT NOT LOWERED -->
-            <itemlayout condition="!Skin.HasSetting(horzLowHomeMenu)" height="100" width="405">
+            <itemlayout height="100" width="405">
                 <control type="label">
                     <posx>460</posx>
                     <posy>21</posy>
@@ -54,33 +44,6 @@
                 <control type="label">
                     <posx>460</posx>
                     <posy>21</posy>
-                    <width>360</width>
-                    <height>40</height>
-                    <font>cirrus_50</font>
-                    <textcolor>grey3</textcolor>
-                    <align>center</align>
-                    <aligny>center</aligny>
-                    <label>$INFO[ListItem.Label]</label>
-                    <animation effect="fade" start="10" end="10" time="0" condition="true">Conditional</animation>
-                </control>
-            </itemlayout>
-
-			<!-- ITEM LAYOUT LOWERED -->
-            <itemlayout condition="Skin.HasSetting(horzLowHomeMenu)" height="100" width="405">
-                <control type="label">
-                    <posx>460</posx>
-                    <posy>218</posy>
-                    <width>360</width><!-- width left and right of center word space -->
-                    <height>40</height><!-- height left and right of center word space -->
-                    <font>cirrus_50</font>
-                    <textcolor>grey3</textcolor>
-                    <align>center</align>
-                    <aligny>center</aligny>
-                    <label>$INFO[ListItem.Label]</label>
-                </control>
-                <control type="label">
-                    <posx>460</posx>
-                    <posy>218</posy>
                     <width>360</width>
                     <height>40</height>
                     <font>cirrus_50</font>
@@ -93,7 +56,7 @@
             </itemlayout>
 
 			<!-- FOCUSED LAYOUT NOT LOWERED -->
-            <focusedlayout condition="!Skin.HasSetting(horzLowHomeMenu)" height="100" width="350">
+            <focusedlayout height="100" width="350">
                 <control type="label">
                     <posx>405</posx>
                     <posy>21</posy>
@@ -108,33 +71,6 @@
                 <control type="label">
                     <posx>405</posx>
                     <posy>21</posy>
-                    <width>360</width><!-- width of word space -->
-                    <height>40</height><!-- height of word space-->
-                    <font>cirrus_50</font>
-                    <textcolor>grey3</textcolor>
-                    <align>center</align>
-                    <aligny>center</aligny>
-                    <label>$INFO[ListItem.Label]</label>
-                    <animation effect="fade" start="10" end="10" time="0" condition="true">Conditional</animation>
-                </control>
-   			</focusedlayout>
-
-			<!-- FOCUSED LAYOUT LOWERED -->
-            <focusedlayout condition="Skin.HasSetting(horzLowHomeMenu)" height="100" width="350">
-                <control type="label">
-                    <posx>405</posx>
-                    <posy>218</posy>
-                    <width>360</width><!-- width of word space -->
-                    <height>40</height><!-- height of word space-->
-                    <font>cirrus_50</font>
-                    <textcolor>white</textcolor>
-                    <align>center</align>
-                    <aligny>center</aligny>
-                    <label>$INFO[ListItem.Label]</label>
-                </control>
-                <control type="label">
-                    <posx>405</posx>
-                    <posy>218</posy>
                     <width>360</width><!-- width of word space -->
                     <height>40</height><!-- height of word space-->
                     <font>cirrus_50</font>
