@@ -1,10 +1,10 @@
 <includes>
-  <include name="HomeNowPlayingHorz">
+  <include name="HomeNowPlayingHorzLow">
   
     <!-- Music NOW PLAYING Info -->
     <control type="group">
       <posx>20</posx>
-      <posy>510</posy>
+      <posy>430</posy>
       <visible>Player.HasAudio + !Skin.HasSetting(homepageNowplayingInfo)</visible>
       <include>VisibleFadeEffect</include>
       <include>Window_OpenClose_Animation</include>
