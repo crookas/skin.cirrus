@@ -342,9 +342,12 @@
           <align>right</align>
           <itemgap>30</itemgap>
           <orientation>horizontal</orientation>
-          <include>VideoCodecFlaggingConditions</include>
-          <include>AudioCodecFlaggingConditions</include>
-          <include>AspectCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">VideoCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">AudioCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">AspectCodecFlaggingConditions</include>
+          <include condition="Skin.HasSetting(newFlags)">VideoCodecFlaggingConditionsNew</include>
+          <include condition="Skin.HasSetting(newFlags)">AudioCodecFlaggingConditionsNew</include>
+          <include condition="Skin.HasSetting(newFlags)">AspectCodecFlaggingConditionsNew</include>
           <visible>Skin.HasSetting(View508HideInfo)</visible>
         </control>
       </control>
@@ -444,9 +447,12 @@
           <align>right</align>
           <itemgap>30</itemgap>
           <orientation>horizontal</orientation>
-          <include>VideoCodecFlaggingConditions</include>
-          <include>AudioCodecFlaggingConditions</include>
-          <include>AspectCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">VideoCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">AudioCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">AspectCodecFlaggingConditions</include>
+          <include condition="Skin.HasSetting(newFlags)">VideoCodecFlaggingConditionsNew</include>
+          <include condition="Skin.HasSetting(newFlags)">AudioCodecFlaggingConditionsNew</include>
+          <include condition="Skin.HasSetting(newFlags)">AspectCodecFlaggingConditionsNew</include>
         </control>
       </control>
 
@@ -618,9 +624,12 @@
           <align>center</align>
           <itemgap>30</itemgap>
           <orientation>horizontal</orientation>
-          <include>VideoCodecFlaggingConditions</include>
-          <include>AudioCodecFlaggingConditions</include>
-          <include>AspectCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">VideoCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">AudioCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">AspectCodecFlaggingConditions</include>
+          <include condition="Skin.HasSetting(newFlags)">VideoCodecFlaggingConditionsNew</include>
+          <include condition="Skin.HasSetting(newFlags)">AudioCodecFlaggingConditionsNew</include>
+          <include condition="Skin.HasSetting(newFlags)">AspectCodecFlaggingConditionsNew</include>
         </control>
       </control>
       <control type="grouplist">
@@ -1063,9 +1072,12 @@
           <align>center</align>
           <itemgap>30</itemgap>
           <orientation>horizontal</orientation>
-          <include>VideoCodecFlaggingConditions</include>
-          <include>AudioCodecFlaggingConditions</include>
-          <include>AspectCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">VideoCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">AudioCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">AspectCodecFlaggingConditions</include>
+          <include condition="Skin.HasSetting(newFlags)">VideoCodecFlaggingConditionsNew</include>
+          <include condition="Skin.HasSetting(newFlags)">AudioCodecFlaggingConditionsNew</include>
+          <include condition="Skin.HasSetting(newFlags)">AspectCodecFlaggingConditionsNew</include>
         </control>
       </control>
     </control>

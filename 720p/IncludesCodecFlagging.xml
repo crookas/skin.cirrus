@@ -1,4 +1,5 @@
 <includes>
+	<!-- ==============OLD VIDEO FLAGS================= -->
 	<include name="VideoCodecFlaggingConditions">
 		<control type="image">
 			<description>Video rez Image</description>
@@ -64,29 +65,218 @@
 			<visible>substring(ListItem.VideoCodec,mpeg2video)</visible>
 		</control>
 	</include>
-<!-- 
-	<include name="VideoTypeHackFlaggingConditions">
+
+	<!-- =============NEW VIDEO FLAGS============ -->
+	<include name="VideoCodecFlaggingConditionsNew">
 		<control type="image">
-			<description>Bluray Image</description>
-			<width>53</width>
+			<description>Video rez Image</description>
+			<width>75</width>
 			<height>28</height>
 			<aspectratio>keep</aspectratio>
-			<texture>flagging/video/bluray.png</texture>
-			<visible>substring(ListItem.filename,bluray)</visible>
+			<texture>$INFO[ListItem.VideoResolution,flagging/videoNew/,.png]</texture>
 		</control>
 		<control type="image">
-			<description>HDDVD Image</description>
-			<width>107</width>
+			<description>Xvid Codec Image</description>
+			<width>75</width>
 			<height>28</height>
 			<aspectratio>keep</aspectratio>
-			<texture>flagging/video/hddvd.png</texture>
-			<visible>substring(ListItem.filename,hddvd)</visible>
+			<texture>flagging/videoNew/xvid.png</texture>
+			<visible>substring(ListItem.VideoCodec,xvid)</visible>
 		</control>
-	</include> -->
-<!-- ============== MPAA RATINGS FLAGS ============= -->
+		<control type="image">
+			<description>Divx Codec Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/videoNew/divx.png</texture>
+			<visible>substring(ListItem.VideoCodec,divx) | substring(ListItem.VideoCodec,div3) |substring(ListItem.VideoCodec,div4) | substring(ListItem.VideoCodec,div5) | substring(ListItem.VideoCodec,dx50)</visible>
+		</control>
+		<control type="image">
+			<description>h264 Codec Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/videoNew/h264.png</texture>
+			<visible>substring(ListItem.VideoCodec,h264)</visible>
+		</control>
+		<control type="image">
+			<description>avc1 Codec Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/videoNew/avc1.png</texture>
+			<visible>substring(ListItem.VideoCodec,avc1)</visible>
+		</control>
+		<control type="image">
+			<description>wvc1 Codec Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/videoNew/wvc1.png</texture>
+			<visible>substring(ListItem.VideoCodec,wvc1)</visible>
+		</control>
+		<control type="image">
+			<description>mpeg1video Codec Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/videoNew/mpeg1video.png</texture>
+			<visible>substring(ListItem.VideoCodec,mpeg1video)</visible>
+		</control>
+		<control type="image">
+			<description>mpeg2video Codec Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/videoNew/mpeg2video.png</texture>
+			<visible>substring(ListItem.VideoCodec,mpeg2video)</visible>
+		</control>
+	</include>
+	
+	<!-- ============AUDIO FLAGS OLD============= -->
+	<include name="AudioCodecFlaggingConditions">
+		<control type="image">
+			<description>mp3 Codec Image</description>
+			<width>95</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audio/mp3.png</texture>
+			<visible>substring(ListItem.AudioCodec,mp3)</visible>
+		</control>
+		<control type="image">
+			<description>dts Codec Image</description>
+			<width>106</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audio/dts.png</texture>
+			<visible>substring(ListItem.AudioCodec,dca)</visible>
+		</control>
+		<control type="image">
+			<description>ac3 Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audio/ac3.png</texture>
+			<visible>substring(ListItem.AudioCodec,ac3) + !substring(ListItem.AudioChannels,6)</visible>
+		</control>
+		<control type="image">
+			<description>aac Image</description>
+			<width>94</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audio/aac.png</texture>
+			<visible>substring(ListItem.AudioCodec,aac)</visible>
+		</control>
+		<control type="image">
+			<description>Dolby Digital Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audio/dolbydigital.png</texture>
+			<visible>substring(ListItem.AudioCodec,ac3) + substring(ListItem.AudioChannels,6)</visible>
+		</control>
+		<control type="image">
+			<description>WMA Pro Codec Image</description>
+			<width>82</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audio/wmapro.png</texture>
+			<visible>substring(ListItem.AudioCodec,wmapro)</visible>
+		</control>
+		<control type="image">
+			<description>Audio Channels Image</description>
+			<width>65</width>
+			<height>28</height>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>$INFO[ListItem.AudioChannels,flagging/audio/,.png]</texture>
+		</control>
+	</include>
+
+	<!-- ============AUDIO FLAGS NEW============= -->
+	<include name="AudioCodecFlaggingConditionsNew">
+		<control type="image">
+			<description>mp3 Codec Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audioNew/mp3.png</texture>
+			<visible>substring(ListItem.AudioCodec,mp3)</visible>
+		</control>
+		<control type="image">
+			<description>dts Codec Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audioNew/dts.png</texture>
+			<visible>substring(ListItem.AudioCodec,dca)</visible>
+		</control>
+		<control type="image">
+			<description>ac3 Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audioNew/ac3.png</texture>
+			<visible>substring(ListItem.AudioCodec,ac3) + !substring(ListItem.AudioChannels,6)</visible>
+		</control>
+		<control type="image">
+			<description>aac Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audioNew/aac.png</texture>
+			<visible>substring(ListItem.AudioCodec,aac)</visible>
+		</control>
+		<control type="image">
+			<description>Dolby Digital Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audioNew/dolbydigital.png</texture>
+			<visible>substring(ListItem.AudioCodec,ac3) + substring(ListItem.AudioChannels,6)</visible>
+		</control>
+		<control type="image">
+			<description>WMA Pro Codec Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>flagging/audioNew/wmapro.png</texture>
+			<visible>substring(ListItem.AudioCodec,wmapro)</visible>
+		</control>
+		<control type="image">
+			<description>Audio Channels Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>$INFO[ListItem.AudioChannels,flagging/audioNew/,.png]</texture>
+		</control>
+	</include>
+	
+	<!-- ==============ASPECTRATIO FLAGS OLD============= -->
+	<include name="AspectCodecFlaggingConditions">
+		<control type="image">
+			<description>Aspectratio Image</description>
+			<width>48</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>$INFO[ListItem.VideoAspect,flagging/aspectratio/,.png]</texture>
+		</control>
+	</include>
+
+	<!-- ==============ASPECTRATIO FLAGS NEW============= -->
+	<include name="AspectCodecFlaggingConditionsNew">
+		<control type="image">
+			<description>Aspectratio Image</description>
+			<width>75</width>
+			<height>28</height>
+			<aspectratio>keep</aspectratio>
+			<texture>$INFO[ListItem.VideoAspect,flagging/aspectratioNew/,.png]</texture>
+		</control>
+	</include>
+	
+	<!-- ==============MPAA RATINGS FLAGS============= -->
 	<include name="VideoMPAAFlaggingConditions">
-	<!-- AUSTRALIAN -->
-	<control type="image">
+		<!-- AUSTRALIAN -->
+		<control type="image">
 			<description>Australia Rated G</description>
 			<width>249</width>
 			<height>57</height>
@@ -240,73 +430,6 @@
 			<aspectratio>keep</aspectratio>
 			<texture>flagging/ratings/mpaa_notrated.png</texture>
 			<visible>isEmpty(listitem.mpaa)</visible>
-		</control>
-	</include>
-<!-- ========= AUDIO FLAGING ============= -->
-	<include name="AudioCodecFlaggingConditions">
-		<control type="image">
-			<description>mp3 Codec Image</description>
-			<width>95</width>
-			<height>28</height>
-			<aspectratio>keep</aspectratio>
-			<texture>flagging/audio/mp3.png</texture>
-			<visible>substring(ListItem.AudioCodec,mp3)</visible>
-		</control>
-		<control type="image">
-			<description>dts Codec Image</description>
-			<width>106</width>
-			<height>28</height>
-			<aspectratio>keep</aspectratio>
-			<texture>flagging/audio/dts.png</texture>
-			<visible>substring(ListItem.AudioCodec,dca)</visible>
-		</control>
-		<control type="image">
-			<description>ac3 Image</description>
-			<width>75</width>
-			<height>28</height>
-			<aspectratio>keep</aspectratio>
-			<texture>flagging/audio/ac3.png</texture>
-			<visible>substring(ListItem.AudioCodec,ac3) + !substring(ListItem.AudioChannels,6)</visible>
-		</control>
-		<control type="image">
-			<description>aac Image</description>
-			<width>94</width>
-			<height>28</height>
-			<aspectratio>keep</aspectratio>
-			<texture>flagging/audio/aac.png</texture>
-			<visible>substring(ListItem.AudioCodec,aac)</visible>
-		</control>
-		<control type="image">
-			<description>Dolby Digital Image</description>
-			<width>75</width>
-			<height>28</height>
-			<aspectratio>keep</aspectratio>
-			<texture>flagging/audio/dolbydigital.png</texture>
-			<visible>substring(ListItem.AudioCodec,ac3) + substring(ListItem.AudioChannels,6)</visible>
-		</control>
-		<control type="image">
-			<description>WMA Pro Codec Image</description>
-			<width>82</width>
-			<height>28</height>
-			<aspectratio>keep</aspectratio>
-			<texture>flagging/audio/wmapro.png</texture>
-			<visible>substring(ListItem.AudioCodec,wmapro)</visible>
-		</control>
-		<control type="image">
-			<description>Audio Channels Image</description>
-			<width>65</width>
-			<height>28</height>
-			<aspectratio align="left">keep</aspectratio>
-			<texture>$INFO[ListItem.AudioChannels,flagging/audio/,.png]</texture>
-		</control>
-	</include>
-	<include name="AspectCodecFlaggingConditions">
-		<control type="image">
-			<description>Aspectratio Image</description>
-			<width>48</width>
-			<height>28</height>
-			<aspectratio>keep</aspectratio>
-			<texture>$INFO[ListItem.VideoAspect,flagging/aspectratio/,.png]</texture>
 		</control>
 	</include>
 </includes>

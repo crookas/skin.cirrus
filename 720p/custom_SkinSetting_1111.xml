@@ -222,6 +222,18 @@
 					<onclick>Skin.ToggleSetting(clearart)</onclick>
 					<selected>Skin.HasSetting(clearart)</selected>
 				</control>
+				<control type="radiobutton" id="10122">
+					<width>750</width>
+					<height>40</height>
+					<font>cirrus_20</font>
+					<label>Enable New Media Flags</label>
+					<textcolor>grey2</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<texturefocus flipx="true">listwhitegradient.png</texturefocus>
+					<texturenofocus>menuitemNF.png</texturenofocus>
+					<onclick>Skin.ToggleSetting(newFlags)</onclick>
+					<selected>Skin.HasSetting(newFlags)</selected>
+				</control>
 				<control type="radiobutton" id="101">
 					<width>750</width>
 					<height>40</height>

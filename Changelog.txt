@@ -3,6 +3,7 @@
 -- Added new submenu for horz main menu (press down now for vertical submenu)
 -- Fixed bug in music now playing
 -- Added new includes for HomeMainMenuLow and HomeNowPlayingLowMenu
+-- Added new media flags and option in skin settings to turn them on
 
 2.0
 -- Added Coverflow music view

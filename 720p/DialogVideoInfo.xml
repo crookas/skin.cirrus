@@ -188,9 +188,12 @@
               <orientation>horizontal</orientation>
               <include>VisibleFadeEffect</include>
               <visible>Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)</visible>
-              <include>VideoCodecFlaggingConditions</include>
-              <include>AudioCodecFlaggingConditions</include>
-              <include>AspectCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">VideoCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">AudioCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">AspectCodecFlaggingConditions</include>
+          <include condition="Skin.HasSetting(newFlags)">VideoCodecFlaggingConditionsNew</include>
+          <include condition="Skin.HasSetting(newFlags)">AudioCodecFlaggingConditionsNew</include>
+          <include condition="Skin.HasSetting(newFlags)">AspectCodecFlaggingConditionsNew</include>
             </control>
           </control>
 
@@ -646,8 +649,12 @@
             <orientation>horizontal</orientation>
             <include>VisibleFadeEffect</include>
             <visible>!Control.IsVisible(50) + [Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)]</visible>
-            <include>VideoCodecFlaggingConditions</include>
-            <include>AudioCodecFlaggingConditions</include>
+           <include condition="!Skin.HasSetting(newFlags)">VideoCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">AudioCodecFlaggingConditions</include>
+          <include condition="!Skin.HasSetting(newFlags)">AspectCodecFlaggingConditions</include>
+          <include condition="Skin.HasSetting(newFlags)">VideoCodecFlaggingConditionsNew</include>
+          <include condition="Skin.HasSetting(newFlags)">AudioCodecFlaggingConditionsNew</include>
+          <include condition="Skin.HasSetting(newFlags)">AspectCodecFlaggingConditionsNew</include>
           </control>
           <control type="group">
             <posx>400</posx>
