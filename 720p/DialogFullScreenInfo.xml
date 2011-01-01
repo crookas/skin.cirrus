@@ -125,7 +125,8 @@
 			<control type="group">
 				<posx>270</posx>
 				<posy>140r</posy>
-				<control type="grouplist">
+				<control type="grouplist"> <!-- NEW FLAGS NOT SELECTED -->
+					<visible>!Skin.HasSetting(newFlags)</visible>
 					<description>Media Codec Flagging Images</description>
 					<posx>440</posx>
 					<posy>0</posy>
@@ -180,6 +181,64 @@
 						<height>30</height>
 						<aspectratio>keep</aspectratio>
 						<texture diffuse="maskflags.png">$INFO[VideoPlayer.AudioChannels,flagging/audio/,.png]</texture>
+					</control>
+				</control>
+				<control type="grouplist"> <!-- NEW FLAGS SELECTED -->
+					<visible>Skin.HasSetting(newFlags)</visible>
+					<description>Media Codec Flagging Images</description>
+					<posx>440</posx>
+					<posy>0</posy>
+					<width min="100" max="550">auto</width>
+					<align>right</align>
+					<itemgap>20</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="image">
+						<description>Video rez Image</description>
+						<width>75</width>
+						<height>28</height>
+						<aspectratio>keep</aspectratio>
+						<texture diffuse="maskflags.png">$INFO[VideoPlayer.VideoResolution,flagging/videoNew/,.png]</texture>
+					</control>
+					<control type="image">
+						<description>Common Codec Image</description>
+						<width>75</width>
+						<height>28</height>
+						<aspectratio>keep</aspectratio>
+						<texture diffuse="maskflags.png">$INFO[VideoPlayer.VideoCodec,flagging/videoNew/,.png]</texture>
+						<!-- Don't show if its one of the 500 divx codecs -->
+						<visible>![substring(VideoPlayer.VideoCodec,divx) | substring(VideoPlayer.VideoCodec,div3) | substring(VideoPlayer.VideoCodec,div4) | substring(VideoPlayer.VideoCodec,div5) | substring(VideoPlayer.VideoCodec,dx50)]</visible>
+					</control>
+					<control type="image">
+						<description>Divx Codec Image</description>
+						<width>75</width>
+						<height>28</height>
+						<aspectratio>keep</aspectratio>
+						<texture diffuse="maskflags.png">flagging/videoNew/divx.png</texture>
+						<visible>substring(VideoPlayer.VideoCodec,divx) | substring(VideoPlayer.VideoCodec,div3) |substring(VideoPlayer.VideoCodec,div4) | substring(VideoPlayer.VideoCodec,div5) | substring(VideoPlayer.VideoCodec,dx50)</visible>
+					</control>
+					<control type="image">
+						<description>Dolby Digital Image</description>
+						<width>75</width>
+						<height>28</height>
+						<aspectratio>keep</aspectratio>
+						<texture diffuse="maskflags.png">flagging/audioNew/dolbydigital.png</texture>
+						<visible>[substring(VideoPlayer.AudioCodec,ac3) + substring(VideoPlayer.AudioChannels,6)]</visible>
+					</control>
+					<control type="image">
+						<description>Audio Codec Image</description>
+						<width>75</width>
+						<height>28</height>
+						<aspectratio>keep</aspectratio>
+						<texture diffuse="maskflags.png">$INFO[VideoPlayer.AudioCodec,flagging/audioNew/,.png]</texture>
+						<!-- Don't show if I want the Dolby Digital Logo -->
+						<visible>![substring(VideoPlayer.AudioCodec,ac3) + substring(VideoPlayer.AudioChannels,6)]</visible>
+					</control>
+					<control type="image">
+						<description>Audio Channels Image</description>
+						<width>75</width>
+						<height>28</height>
+						<aspectratio>keep</aspectratio>
+						<texture diffuse="maskflags.png">$INFO[VideoPlayer.AudioChannels,flagging/audioNew/,.png]</texture>
 					</control>
 				</control>
 				<control type="label">
