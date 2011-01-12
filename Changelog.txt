@@ -4,6 +4,10 @@
 -- Fixed bug in music now playing
 -- Added new includes for HomeMainMenuLow and HomeNowPlayingLowMenu
 -- Added new media flags and option in skin settings to turn them on
+-- Changed recently added again
+-- moved clock around a bit
+-- recently added changed "playedonly" option to false (all movies appear in recently added)
+-- Complete overhaul of now playing and recently added for both horz and vert menus 
 
 2.0
 -- Added Coverflow music view

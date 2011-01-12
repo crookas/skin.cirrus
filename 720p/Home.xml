@@ -30,10 +30,11 @@
     </control>
   
     <include>CommonMediaPlayingBackground</include>
-    <include condition="Skin.HasSetting(homepageHideRecentlyAdded)">HomeRecentlyAddedInfo</include>
+    <include condition="Skin.HasSetting(homepageHideRecentlyAdded) + !Skin.HasSetting(horzHomeMenu)">HomeRecentlyAddedInfo</include>
+    <include condition="Skin.HasSetting(homepageHideRecentlyAdded) + Skin.HasSetting(horzHomeMenu)">HomeRecentlyAddedInfoHorz</include>
     <include condition="!Skin.HasSetting(horzHomeMenu)">HomeNowPlaying</include>
     <include condition="Skin.HasSetting(horzHomeMenu) + !Skin.HasSetting(horzLowHomeMenu)">HomeNowPlayingHorz</include>
-    <include condition="Skin.HasSetting(horzLowHomeMenu)">HomeNowPlayingHorzLow</include>
+    <include condition="Skin.HasSetting(horzLowHomeMenu) + Skin.HasSetting(horzHomeMenu)">HomeNowPlayingHorzLow</include>
 
     <control type="group">
   
@@ -51,7 +52,7 @@
       <height>1</height>
       <label>-</label>
       <font>-</font>
-      <onfocus>XBMC.RunScript(script.recentlyadded,limit=3&amp;totals=True&amp;albums=True&amp;unplayed=True)</onfocus>
+      <onfocus>XBMC.RunScript(script.recentlyadded,limit=4&amp;totals=True&amp;albums=True&amp;unplayed=False)</onfocus>
       <onfocus>SetFocus(9000)</onfocus>
       <texturenofocus>-</texturenofocus>
       <texturefocus>-</texturefocus>
@@ -74,7 +75,7 @@
     <!-- MAIN MENUS -->
     <include condition="!Skin.HasSetting(horzHomeMenu)">HomeMainMenu</include>
     <include condition="Skin.HasSetting(horzHomeMenu) + !Skin.HasSetting(horzLowHomeMenu)">HomeMainMenuHorz</include>
-    <include condition="Skin.HasSetting(horzLowHomeMenu)">HomeMainMenuHorzLow</include>
+    <include condition="Skin.HasSetting(horzHomeMenu) + Skin.HasSetting(horzLowHomeMenu)">HomeMainMenuHorzLow</include>
 
 
     <control type="image">
@@ -180,14 +181,6 @@
   <control type="group">
     <posx>140</posx>
     <posy>15</posy>
-    <control type="image">
-      <posx>-140</posx>
-      <posy>28r</posy>
-      <width>1280</width>
-      <height>105</height>
-      <texture>horzmenuback.png</texture>
-      <visible>Skin.HasSetting(horzHomeMenu) + Skin.HasSetting(horzLowHomeMenu)</visible>
-    </control>
     <control type="rss">
       <description>RSS feed</description>
       <posx>1280r</posx>
@@ -205,133 +198,131 @@
   
   <!-- Weather, time etc VERT MENU -->
     <control type="group">
-    <visible>!Skin.HasSetting(homeNoClock) + !Skin.HasSetting(horzLowHomeMenu)</visible>
-    <posx>60r</posx>
-    <posy>200r</posy>
-    <width>500</width>
-    <align>right</align>
-    <control type="label">
-      <description>time label</description>
-      <posx>20</posx>
-      <posy>10</posy>
-      <width>500</width>
-      <height>28</height>
-      <align>right</align>
-      <aligny>top</aligny>
-      <font>cirrus_50</font>
-      <textcolor>white</textcolor>
-      <shadowcolor>black</shadowcolor>
-      <label>$INFO[System.Time]</label>
-    </control>
-    <control type="label">
-      <description>time label</description>
-      <posx>20</posx>
-      <posy>75</posy>
-      <width>500</width>
-      <height>28</height>
-      <align>right</align>
-      <aligny>center</aligny>
-      <font>cirrus_30</font>
-      <textcolor>white</textcolor>
-      <shadowcolor>black</shadowcolor>
-      <label>[COLOR=grey]$INFO[System.Date][/COLOR]</label>
-    </control>      
+		<visible>!Skin.HasSetting(homeNoClock) + !Skin.HasSetting(horzHomeMenu)</visible>
+		<posx>300r</posx>
+		<!-- <posy>120r</posy> -->
+		<posy>10</posy>
+		<width>300</width>
+		<!-- <control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>295</width>
+			<height>90</height>
+			<texture background="true">black-back.png</texture>
+			<aspectratio>stretch</aspectratio>
+			<align>right</align>
+		</control> -->
+		<control type="label">
+			<description>time label</description>
+			<posx>10</posx>
+			<posy>10</posy>
+			<width>300</width>
+			<height>28</height>
+			<align>left</align>
+			<aligny>top</aligny>
+			<font>cirrus_40</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$INFO[System.Time]</label>
+		</control>
+		<control type="label">
+			<description>date label</description>
+			<posx>-5</posx>
+			<posy>50</posy>
+			<width>300</width>
+			<height>28</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<font>cirrus_20</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>[COLOR=grey]$INFO[System.Date][/COLOR]</label>
+		</control>      
 
-    <!-- weather Info -->
-    <control type="group">
-      <posx>800r</posx>
-      <posy>110</posy>
-      <align>right</align>
-      <!-- <visible>!Skin.HasSetting(homepageWeatherinfo) + Weather.IsFetched</visible> -->
-      <visible>Weather.IsFetched</visible>
-      <control type="image">
-        <description>Weather image</description>
-        <posx>270</posx>
-        <posy>10</posy>
-        <width>50</width>
-        <height>50</height>
-        <aspectratio>keep</aspectratio>
-        <texture>$INFO[Weather.Conditions]</texture>
-      </control>
-      <control type="label">
-        <description>temp label</description>
-        <posx>260</posx>
-        <posy>20</posy>
-        <width>200</width>
-        <height>28</height>
-        <align>right</align>
-        <aligny>center</aligny>
-        <font>cirrus_30</font>
-        <textcolor>white</textcolor>
-        <shadowcolor>black</shadowcolor>
-        <label>$INFO[Weather.Temperature]</label>
-      </control>
+		<!-- weather Info -->
+		<control type="group">
+			<posx>300r</posx>
+			<posy>0</posy>
+			<align>left</align>
+			<!-- <visible>!Skin.HasSetting(homepageWeatherinfo) + Weather.IsFetched</visible> -->
+			<visible>Weather.IsFetched</visible>
+			<control type="image">
+				<description>Weather image</description>
+				<posx>150</posx>
+				<posy>5</posy>
+				<width>50</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Weather.Conditions]</texture>
+			</control>
+			<control type="label">
+				<description>temp label</description>
+				<posx>200</posx>
+				<posy>17</posy>
+				<width>300</width>
+				<height>28</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>cirrus_40</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$INFO[Weather.Temperature]</label>
+			</control>
+		</control>
     </control>
-    </control>
-  <!-- LOW HORZ menu -->
-    <control type="group">
-    <visible>!Skin.HasSetting(homeNoClock) + Skin.HasSetting(horzLowHomeMenu)</visible>
-    <posx>30</posx>
-    <posy>20</posy>
-    <width>500</width>
-    <align>left</align>
-    <control type="label">
-      <description>time label</description>
-      <posx>0</posx>
-      <posy>10</posy>
-      <width>500</width>
-      <height>28</height>
-      <align>left</align>
-      <aligny>top</aligny>
-      <font>cirrus_50</font>
-      <textcolor>white</textcolor>
-      <shadowcolor>black</shadowcolor>
-      <label>$INFO[System.Time]</label>
-    </control>
-    <control type="label">
-      <description>time label</description>
-      <posx>0</posx>
-      <posy>75</posy>
-      <width>500</width>
-      <height>28</height>
-      <align>left</align>
-      <aligny>center</aligny>
-      <font>cirrus_30</font>
-      <textcolor>white</textcolor>
-      <shadowcolor>black</shadowcolor>
-      <label>[COLOR=grey]$INFO[System.Date][/COLOR]</label>
-    </control>      
 
-    <!-- weather Info -->
+	<!-- HORZ menu -->
     <control type="group">
-      <posx>0</posx>
-      <posy>110</posy>
-      <align>left</align>
-      <visible>Weather.IsFetched</visible>
-      <!-- <visible>!Skin.HasSetting(homepageWeatherinfo) + Weather.IsFetched</visible> -->
-      <control type="image">
-        <description>Weather image</description>
-        <posx>0</posx>
-        <posy>10</posy>
-        <width>50</width>
-        <height>50</height>
-        <aspectratio>keep</aspectratio>
-        <texture>$INFO[Weather.Conditions]</texture>
-      </control>
-      <control type="label">
-        <description>temp label</description>
-        <posx>60</posx>
-        <posy>20</posy>
-        <width>200</width>
-        <height>28</height>
-        <align>left</align>
-        <aligny>center</aligny>
-        <font>cirrus_30</font>
-        <textcolor>white</textcolor>
-        <shadowcolor>black</shadowcolor>
-        <label>$INFO[Weather.Temperature]</label>
-      </control>
-    </control>
+		<visible>!Skin.HasSetting(homeNoClock) + Skin.HasSetting(horzHomeMenu)</visible>
+		<posx>150r</posx>
+		<posy>5</posy>
+		<width>200</width>
+		<align>right</align>
+		<control type="label">
+			<description>time label</description>
+			<posx>-10</posx>
+			<posy>0</posy>
+			<width>500</width>
+			<height>28</height>
+			<align>right</align>
+			<aligny>top</aligny>
+			<font>cirrus_40</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$INFO[System.Time]</label>
+		</control>    
+
+		<!-- weather Info -->
+		<control type="group">
+			<posx>0</posx>
+			<posy>0</posy>
+			<align>right</align>
+			<width>200</width>
+			<visible>Weather.IsFetched</visible>
+			<!-- <visible>!Skin.HasSetting(homepageWeatherinfo) + Weather.IsFetched</visible> -->
+			<control type="image">
+				<description>Weather image</description>
+				<posx>0</posx>
+				<posy>-5</posy>
+				<width>50</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Weather.Conditions]</texture>
+			</control>
+			<control type="label">
+				<description>temp label</description>
+				<posx>60</posx>
+				<posy>10</posy>
+				<width>200</width>
+				<height>28</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>cirrus_40</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$INFO[Weather.Temperature]</label>
+			</control>
+		</control>
     </control>
   
   

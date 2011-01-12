@@ -10,6 +10,15 @@
 			<texture>horzmenuback.png</texture>
 			<visible>Skin.HasSetting(horzHomeMenu) + !Skin.HasSetting(horzLowHomeMenu)</visible>
 		</control>
+		<!-- background for rss feed -->
+		<control type="image">
+			<posx>0</posx>
+			<posy>25r</posy>
+			<width>1280</width>
+			<height>700</height>
+			<texture>rightlistbackground.png</texture>
+			<aspectratio>stretch</aspectratio>
+		</control>
 	
 		<!-- HORIZONTAL MAIN MENU -->
 		<control type="wraplist" id="9000">

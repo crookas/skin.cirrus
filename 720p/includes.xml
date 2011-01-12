@@ -16,6 +16,7 @@
   <include file="ViewsPictures.xml" />
   <include file="IncludesCodecFlagging.xml" />
   <include file="IncludesHomeRecentlyAdded.xml" />
+  <include file="IncludesHomeRecentlyAddedHorz.xml" />
   <include file="IncludesHomeNowPlaying.xml" />
   <include file="IncludesHomeNowPlayingHorz.xml" />
   <include file="IncludesHomeNowPlayingHorzLow.xml" />

@@ -7,7 +7,7 @@
 			<posy>240</posy>
 			
 			<control type="image"> <!-- background bar for normal submenus -->
-				<posx>10</posx>
+				<posx>-10</posx>
 				<posy>-500</posy>
 				<width>280</width>
 				<height>1250</height>

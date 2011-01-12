@@ -7,13 +7,13 @@
 			<posx>-250</posx>
 			<posy>496</posy>
 			
-			<control type="image"> <!-- background bar for horizontal submenus -->
-				<posx>0</posx>
-				<posy>85</posy>
-				<width>1350</width>
-				<height>40</height>
-				<texture>back-buttons.png</texture>
-				<!-- <aspectratio>stretch</aspectratio> -->
+			<control type="image">
+					<posx>0</posx>
+					<posy>145r</posy>
+					<width>1280</width>
+					<height>700</height>
+					<texture>rightlistbackground.png</texture>
+					<aspectratio>stretch</aspectratio>
 			</control>
 			
 			<animation effect="fade" start="100" end="0" time="0" condition="!ControlGroup(9001).HasFocus">conditional</animation>
