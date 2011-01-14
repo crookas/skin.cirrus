@@ -721,7 +721,7 @@
 					<posy>15</posy>
 					<height>20</height>
 					<width>450</width>
-					<label>Statistics</label>
+					<label>$LOCALIZE[14022] $LOCALIZE[16100]</label>
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>cirrus_24</font>
