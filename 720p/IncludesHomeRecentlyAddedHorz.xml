@@ -27,7 +27,7 @@
 				<!-- <animation effect="slide" time="0" start="0,0" end="-260,0" condition="[Library.HasContent(TVShows) + ![Skin.HasSetting(HomeMenuNoMoviesButton) | Skin.HasSetting(HomeMenuNoTVShowsButton)]]">Conditional</animation> -->
 				<control type="image">
 						<posx>0</posx>
-						<posy>-500</posy>
+						<posy>-535</posy>
 						<width>1280</width>
 						<height>700</height>
 						<texture flipy="true">rightlistbackground.png</texture>
@@ -36,20 +36,20 @@
 				<control type="label">
 					<description>Title label</description>
 					<posx>35</posx>
-					<posy>60</posy>
+					<posy>20</posy>
 					<height>20</height>
 					<width>450</width>
 					<label>31323</label>
 					<align>left</align>
 					<aligny>center</aligny>
-					<font>cirrus_20_Bold</font>
+					<font>cirrus_20</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 
 				<control type="list" id="8000">
 					<posx>30</posx>
-					<posy>90</posy>
+					<posy>55</posy>
 					<width>1240</width>
 					<height>400</height>
 					<onleft>8000</onleft>
@@ -219,7 +219,7 @@
 				<include>VisibleFadeEffect</include>
 				<control type="image">
 						<posx>0</posx>
-						<posy>-500</posy>
+						<posy>-535</posy>
 						<width>1280</width>
 						<height>700</height>
 						<texture flipy="true">rightlistbackground.png</texture>
@@ -228,20 +228,20 @@
 				<control type="label">
 					<description>Title label</description>
 					<posx>35</posx>
-					<posy>60</posy>
+					<posy>20</posy>
 					<height>20</height>
 					<width>450</width>
 					<label>31324</label>
 					<align>left</align>
 					<aligny>center</aligny>
-					<font>cirrus_20_Bold</font>
+					<font>cirrus_20</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 
 				<control type="list" id="8001">
 					<posx>30</posx>
-					<posy>90</posy>
+					<posy>55</posy>
 					<width>1240</width>
 					<height>400</height>
 					<onleft>8001</onleft>
@@ -414,7 +414,7 @@
 				<!-- <animation effect="slide" time="0" start="0,0" end="-260,0" condition="[Library.HasContent(TVShows) + ![Skin.HasSetting(HomeMenuNoMoviesButton) | Skin.HasSetting(HomeMenuNoTVShowsButton)]]">Conditional</animation> -->
 				<control type="image">
 						<posx>0</posx>
-						<posy>-500</posy>
+						<posy>-535</posy>
 						<width>1280</width>
 						<height>700</height>
 						<texture flipy="true">rightlistbackground.png</texture>
@@ -423,20 +423,20 @@
 				<control type="label">
 					<description>Title label</description>
 					<posx>35</posx>
-					<posy>60</posy>
+					<posy>20</posy>
 					<height>20</height>
 					<width>450</width>
 					<label>359</label>
 					<align>left</align>
 					<aligny>center</aligny>
-					<font>cirrus_20_Bold</font>
+					<font>cirrus_20</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 
 				<control type="list" id="8002">
 					<posx>30</posx>
-					<posy>90</posy>
+					<posy>55</posy>
 					<width>1240</width>
 					<height>400</height>
 					<onleft>8002</onleft>
@@ -606,7 +606,7 @@
 				<include>VisibleFadeEffect</include>
 				<control type="image">
 						<posx>0</posx>
-						<posy>-500</posy>
+						<posy>-535</posy>
 						<width>1280</width>
 						<height>700</height>
 						<texture flipy="true">rightlistbackground.png</texture>
@@ -615,19 +615,19 @@
 				<control type="label">
 					<description>Title label</description>
 					<posx>35</posx>
-					<posy>60</posy>
+					<posy>20</posy>
 					<height>20</height>
 					<width>450</width>
-					<label>Statistics</label>
+					<label>$LOCALIZE[14022] $LOCALIZE[16100]</label>
 					<align>left</align>
 					<aligny>center</aligny>
-					<font>cirrus_20_Bold</font>
+					<font>cirrus_20</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="group">
 					<posx>30</posx>
-					<posy>90</posy>
+					<posy>55</posy>
 					<!-- Movies section -->
 					<control type="image">
 						<posx>0</posx>
