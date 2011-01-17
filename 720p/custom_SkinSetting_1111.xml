@@ -137,6 +137,11 @@
 					<label2>Home Menu Items</label2>
 					<onclick>-</onclick>
 				</item>
+				<item id="6">
+					<label>$LOCALIZE[166] Extras</label>
+					<label2>$LOCALIZE[24001] / $LOCALIZE[247] / Etc.</label2>
+					<onclick>-</onclick>
+				</item>
 			</content>
 		</control>
 
@@ -2839,6 +2844,67 @@
 						<onclick>Skin.SetFile(Menu_Custom10_Path,.xsp,special://videoplaylists)</onclick>
 						<visible>Skin.HasSetting(Menu_Custom10) + Skin.String(MoviesCustom,10)</visible>
 					</control>
+				</control>
+			</control>
+			
+			<!-- SKIN EXTRAS SETTINGS -->
+			<control type="grouplist" id="9006">
+				<visible>Container(9000).Hasfocus(6)</visible>
+				<posx>290</posx>
+				<posy>60</posy>
+				<width>750</width>
+				<height>530</height>
+				<itemgap>-1</itemgap>
+				<pagecontrol>-</pagecontrol>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<onup>9001</onup>
+				<ondown>9001</ondown>
+				<control type="label" id="90061">
+					<width>750</width>
+					<height>45</height>
+					<font>cirrus_20</font>
+					<label>Add-ons / Scripts / Mods / Etc.</label>
+					<textcolor>orange</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="radiobutton" id="90062">
+					<width>750</width>
+					<height>40</height>
+					<font>cirrus_20</font>
+					<label>Extras setting 1</label>
+					<textcolor>grey2</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<texturefocus flipx="true">listwhitegradient.png</texturefocus>
+					<texturenofocus>menuitemNF.png</texturenofocus>
+					<onclick>Skin.ToggleSetting(extrasetting1)</onclick>
+					<selected>Skin.HasSetting(extrasetting1)</selected>
+				</control>
+				<control type="radiobutton" id="90063">
+					<width>750</width>
+					<height>40</height>
+					<font>cirrus_20</font>
+					<label>Extras setting 2</label>
+					<textcolor>grey2</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<texturefocus flipx="true">listwhitegradient.png</texturefocus>
+					<texturenofocus>menuitemNF.png</texturenofocus>
+					<onclick>Skin.ToggleSetting(extrasetting2)</onclick>
+					<selected>Skin.HasSetting(extrasetting2)</selected>
+				</control>
+				<control type="radiobutton" id="90064">
+					<width>750</width>
+					<height>40</height>
+					<font>cirrus_20</font>
+					<label>Extras setting 3</label>
+					<textcolor>grey2</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<texturefocus flipx="true">listwhitegradient.png</texturefocus>
+					<texturenofocus>menuitemNF.png</texturenofocus>
+					<onclick>Skin.ToggleSetting(extrasetting3)</onclick>
+					<selected>Skin.HasSetting(extrasetting3)</selected>
 				</control>
 			</control>
 	
